@@ -1,0 +1,56 @@
+<section>
+   
+   
+   
+   
+
+
+   
+   <div class="col-md-6 mt-5 mx-auto">
+   
+   
+        
+        <table class="table mt-5" id="datatable">
+  <thead>
+    <tr>
+     <th scope="col">No.</th>
+      <th>Colleges</th>
+      <th>Type</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {{#each govt}}
+    <tr>
+      <td scope="row"></td>
+      <td>
+        <a href="/edit-govtcoll/{{this._id}}" class="btn btn-primary">{{this.college}}</a>
+      </td>
+      <td>{{this.type}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+   
+</section>
+<script>
+  $(document).ready( function () {
+    $('#datatable').DataTable();
+  } );
+</script>
+
+<style>
+  body {
+    counter-reset: Count-Value;
+  }
+
+  table {
+    border-collapse: separate;
+  }
+
+  tr td:first-child:before {
+    counter-increment: Count-Value;
+    content: counter(Count-Value);
+  }
+</style>

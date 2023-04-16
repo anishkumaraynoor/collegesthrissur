@@ -1,0 +1,135 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<section>
+
+    <div class="container mt-3">
+        <div class="row mt-4">
+            <a href="/admin/view-govt" class="btn btn-success ml-auto">View Govt Colleges</a>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <h2 class="text-center mb-4">College Level Data Entry</h2>
+                </div>
+
+
+                <div class="col-md-12">
+                    <button id="add_row" class="btn btn-default pull-left">Add Row</button><button id='delete_row'
+                        class="pull-left btn btn-default">Delete Row</button>
+                </div>
+
+
+                <form action="/admin/add-govt" method="POST" name="form">
+
+                    <div class="form-group row">
+                        <label for="colFormLabel" class=" col-form-label">College</label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="college">
+                        </div>
+                        <label for="colFormLabel" class=" col-form-label">Type</label>
+                        <div class="col-md-2">
+                                <select class="form-control" id="exampleFormControlSelect1" name="type">
+                                <option>Govt</option>
+                                <option>Aided</option>
+                                <option>Self Finance</option>
+                            </select>
+                        </div>
+                        <label for="colFormLabel" class=" col-form-label">Map</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="link">
+                        </div>
+                        <label for="colFormLabel" class=" col-form-label">Web</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="web">
+                        </div>
+
+                    </div>
+
+                    <div class="container">
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <table class="table table-bordered table-hover" id="tab_logic">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                                #
+                                            </th>
+                                            <th class="col-md-6 text-center">
+                                                Course
+                                            </th>
+                                            <th class="text-center">
+                                                Intake
+                                            </th>
+                                            <th class="text-center">
+                                                Fees
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id='addr0'>
+                                            <td>1</td>
+                                            <td>
+                                                <input type="text" name='course[]' placeholder='Enter Course'
+                                                    class="form-control" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name='intake[]' placeholder='Enter Intake'
+                                                    class="form-control" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name='fee[]' placeholder='Enter Fees'
+                                                    class="form-control" />
+                                            </td>
+                                        </tr>
+                                        <tr id='addr1'></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+<script>
+
+    $(document).ready(function () {
+        var i = 1;
+        $("#add_row").click(function () {
+            b = i - 1;
+            $('#addr' + i).html($('#addr' + b).html()).find('td:first-child').html(i + 1);
+            $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
+            i++;
+        });
+        $("#delete_row").click(function () {
+            if (i > 1) {
+                $("#addr" + (i - 1)).html('');
+                i--;
+            }
+        });
+
+    });
+
+
+
+
+
+</script>

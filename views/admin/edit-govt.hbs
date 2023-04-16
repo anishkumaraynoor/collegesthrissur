@@ -1,0 +1,151 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<section>
+
+    <div class="container mt-3">
+        <div class="row mt-4">
+            <a href="/admin/view-govt" class="btn btn-success ml-auto">View Govt Colleges</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <h2 class="text-center mb-4">Edit Data</h2>
+                </div>
+
+
+                <div class="col-md-12">
+                    <button id="add_row" class="btn btn-default pull-left">Add Row</button><button id='delete_row'
+                        class="pull-left btn btn-default">Delete Row</button>
+                </div>
+
+
+                <form action="/admin/edit-govt/{{allitems._id}}" method="POST" name="form">
+
+                    <div class="form-group row">
+                        <label for="colFormLabel" class=" col-form-label">College</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="college"
+                                value="{{allitems.college}}">
+                        </div>
+                        <label for="colFormLabel" class=" col-form-label">Type</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="type"
+                                value="{{allitems.type}}">
+                        </div>
+                        <label for="colFormLabel" class=" col-form-label">Link</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="link"
+                                value="{{allitems.link}}">
+                        </div>
+                        <label for="colFormLabel" class=" col-form-label">Web</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="web"
+                                value="{{allitems.web}}">
+                        </div>
+
+                    </div>
+
+                    <div class="container">
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <table class="table table-bordered table-hover tab_wrapper" id="tab_logic">
+                                    <thead>
+
+                                        <tr>
+                                            <th class="text-center">
+                                                #
+                                            </th>
+                                            <th class="col-md-6 text-center">
+                                                Course
+                                            </th>
+                                            <th class="text-center">
+                                                Intake
+                                            </th>
+                                            <th class="text-center">
+                                                Fees
+                                            </th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+
+                                        <tr id='addr0'>
+                                            {{#each items}}
+                                            <td></td>
+
+                                            <td>
+                                                <input type="text" name='course[]' placeholder='Enter Course'
+                                                    value="{{this.course}}" class="form-control" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name='intake[]' placeholder='Enter Intake'
+                                                    value="{{this.intake}}" class="form-control" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name='fee[]' placeholder='Enter Fees'
+                                                    value="{{this.fee}}" class="form-control" />
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                        <tr id='addr1'></tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+<script>
+
+    $(document).ready(function () {
+        var i = 1;
+        var wrapper = $('.tab_wrapper');
+        var fieldHTML = '<tr><td></td><td><input type="text" name="course[]" placeholder="Enter Course" value="" class="form-control" /></td><td><input type="text" name="intake[]" placeholder="Enter Intake" value="" class="form-control" /></td><td><input type="text" name="fee[]" placeholder="Enter Fees" value="" class="form-control" /></td></tr><a href="javascript:void(0);" class="remove_lwa"><img src="/images/removebutton.png" width="25px" height="auto"/></a>'
+
+
+        $("#add_row").click(function () {
+           $(wrapper).append(fieldHTML);
+            i++
+        });
+
+
+        $("#delete_row").click(function () {
+            $('#tab_logic tr:last').remove();
+        });
+
+    });
+
+
+
+
+
+</script>
+
+<style>
+    body {
+        counter-reset: Count-Value;
+    }
+
+    tr td:first-child:before {
+        counter-increment: Count-Value;
+        content: counter(Count-Value);
+    }
+</style>
