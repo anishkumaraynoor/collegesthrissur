@@ -10,7 +10,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
   let user = req.session.user;
   console.log(user);
-  res.render('', { user });
+  res.render('user/homepage', { user });
 });
 
 router.get('/login', (req, res) => {
@@ -46,6 +46,11 @@ router.get('/logout', function (req, res) {
   req.session.destroy();
   res.redirect('/');
 })
+
+router.get('/message', function (req, res, next) {
+  let user = req.session.user;
+  res.render('user/message', { user });
+});
 
 router.get('/view-govtcoll', function (req, res, next) {
   let user = req.session.user;

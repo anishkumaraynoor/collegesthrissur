@@ -1,4 +1,37 @@
-<header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+</head>
+<body>
+
+
+<!-- Navbar -->
+<div class="w3-top ">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">കോളേജ് വിദ്യാഭ്യാസ ഡെപ്യൂട്ടി ഡയറക്ടറുടെ കാര്യാലയം, തൃശ്ശൂര്‍</a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HOME</a>
+    <a href="/view-govtcoll" class="w3-bar-item w3-button w3-padding-large w3-hide-small">COLLEGES</a>
+    
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+  <a href="/view-govtcoll" class="w3-bar-item w3-button w3-padding-large">COLLEGES</a>
+  
+</div>
 
 
 
@@ -6,54 +39,26 @@
 
 
 
+<script>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-success">
-    <a class="navbar-brand">കോളേജ് വിദ്യാഭ്യാസ ഡെപ്യൂട്ടി</a>
-    <a class="navbar-brand">ഡയറക്ടറുടെ കാര്യാലയം, തൃശ്ശൂര്‍</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="/view-govtcoll">Colleges</a>
-        </li>
-      </ul>
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          {{#if user}}
-          {{user.Name}}
-          {{else}}
-          Account
-          {{/if}}
-
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          {{#if user}}
-          <a class="dropdown-item" href="/logout">Logout</a>
-          {{else}}
-          <a class="dropdown-item" href="/login">Login</a>
-          {{/if}}
-
-        </div>
-      </div>
-    </div>
-  </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-</header>
+</body>
+</html>
