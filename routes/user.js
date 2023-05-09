@@ -3,7 +3,8 @@ var collection = require('../config/collections');
 
 const { render, response } = require('../app');
 const userHelpers = require('../helpers/user-helpers');
-const govtHelpers = require('../helpers/govt-helpers')
+const govtHelpers = require('../helpers/govt-helpers');
+const imageHelpers = require('../helpers/image-helpers')
 var router = express.Router();
 
 /* GET home page. */
@@ -72,6 +73,22 @@ router.get('/edit-govtcoll/:id', async (req, res) => {
 router.get('/download-file', function (req, res, next) {
   const file = `files/letterreplace.docx`;
   res.download(file);
+})
+
+router.get('/view-file', function (req, res, next) {
+  let user = req.session.user;
+  var collectname = collection.IMAGE_COLLECTION;
+  imageHelpers.getAllItems(collectname).then((image) => {
+    res.render('user/view-file', { image, user });
+  })
+});
+
+
+router.get('/edit-file/:id', function (req, res, next) {
+  let fileId = req.params.id
+  const file = './public/file-images/'+fileId+'.pdf';
+  res.download(file);
+  
 })
 
 

@@ -21,6 +21,7 @@ var hbs = require('express-handlebars');
 var app = express();
 var db = require('./config/connection');
 var session = require('express-session');
+var fileUpload = require('express-fileupload');
 // view engine setup
 app.use(express.static(process.env.PWD + '/public'));
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +29,7 @@ app.set('view engine', 'hbs');
 app.engine('hbs',hbs({extname:'hbs',defaultLayout:'layout',layoutsDir:__dirname+'/views/layout/',partialsDir:__dirname+'/views/partials/'}))
 app.use(logger('dev'));
 app.use(express.json());
+app.use(fileUpload());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

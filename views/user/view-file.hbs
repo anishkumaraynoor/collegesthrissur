@@ -1,0 +1,64 @@
+<section>
+   
+   
+   
+   
+
+
+
+
+ <label class="mt-5" for=""></label>
+                <div class="mt-5">
+                    <h2 class="text-center mt-5">Files</h2>
+                </div>
+             
+
+   
+   <div class="col-md-6 mt-5 mx-auto">
+   
+   
+        
+        <table class="table mt-5" id="datatable">
+  <thead>
+    <tr>
+     <th scope="col">No.</th>
+      <th>File Name</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    {{#each image}}
+    <tr>
+      <td scope="row"></td>
+      <td>
+        <a href="/edit-file/{{this._id}}" class="btn btn-primary">{{this.filename}}</a>
+      </td>
+      
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+   
+</section>
+<script>
+  $(document).ready( function () {
+    $('#datatable').DataTable();
+  } );
+</script>
+
+<style>
+  body {
+    counter-reset: Count-Value;
+  }
+
+  table {
+    border-collapse: separate;
+  }
+
+  tr td:first-child:before {
+    counter-increment: Count-Value;
+    content: counter(Count-Value);
+  }
+</style>

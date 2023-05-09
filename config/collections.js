@@ -15,6 +15,7 @@ module.exports={
     TEACHER_COLLECTION: 'teacher',
     CASHBOOK_COLLECTION: 'cashbook',
     GOVT_COLLECTION: 'govt',
-    AI_COLLECTION: 'ai'
+    AI_COLLECTION: 'ai',
+    IMAGE_COLLECTION: 'image'
     
 }
