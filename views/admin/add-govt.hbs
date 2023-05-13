@@ -1,143 +1,149 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+  integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
 
 
 
 <section>
 
     <div class="container mt-3">
-        <div class="row mt-4">
-            <a href="/admin/view-govt" class="btn btn-success ml-auto">View Colleges</a>
-            
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div>
-                    <h2 class="text-center mb-4">College Level Data Entry</h2>
-                </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div>
+            <h2 class="text-center mb-4">EL Calculation</h2>
+          </div>
+
+          <form action="/add-pc" method="POST" name="form">
+            <div class="card1">
+            <div class="card" style="">
+
+              <div class="card-body">
 
 
-                <div class="col-md-12">
-                    <button id="add_row" class="btn btn-default pull-left">Add Row</button><button id='delete_row'
-                        class="pull-left btn btn-default">Delete Row</button>
-                </div><br>
-
-
-                <form action="/admin/add-govt" method="POST" name="form">
-
-                    <div class="form-group row col-md-12 mt-4">
-                        <label for="colFormLabel" class="col-form-label ml-4">College</label>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="college">
-                        </div>
-                        <label for="colFormLabel" class=" col-form-label ml-4">Type</label>
-                        <div class="col-md-2">
-                                <select class="form-control" id="exampleFormControlSelect1" name="type">
-                                <option>Govt</option>
-                                <option>Aided</option>
-                                <option>Self Finance</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="form-group row col-md-12">
-                        <label for="colFormLabel" class=" col-form-label ml-4">Map</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="link">
-                        </div>
-                        <label for="colFormLabel" class=" col-form-label ml-4">Web</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="" name="web">
-                        </div>
-
-                    </div>
-
-
-
-
-
-                    <div class="container col-md-12">
-                        <div class="row clearfix">
-                            <div class="col-md-12 column">
-                                <table class="table table-bordered table-hover" id="tab_logic">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">
-                                                #
-                                            </th>
-                                            <th class="col-md-6 text-center">
-                                                Course
-                                            </th>
-                                            <th class="text-center">
-                                                Intake
-                                            </th>
-                                            <th class="text-center">
-                                                Fees
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr id='addr0'>
-                                            <td>1</td>
-                                            <td>
-                                                <input type="text" name='course[]' placeholder='Enter Course'
-                                                    class="form-control" />
-                                            </td>
-                                            <td>
-                                                <input type="text" name='intake[]' placeholder='Enter Intake'
-                                                    class="form-control" />
-                                            </td>
-                                            <td>
-                                                <input type="text" name='fee[]' placeholder='Enter Fees'
-                                                    class="form-control" />
-                                            </td>
-                                        </tr>
-                                        <tr id='addr1'></tr>
-                                    </tbody>
-                                </table>
+                            
+                            <label for="colFormLabel" class="col-sm-4 col-form-label">OB Date</label>
+                            <div class="">
+                                <input type="date" class="col-sm-5" id="obdate" placeholder="" name="obdate">
+                                <input type="date" class="col-sm-5" id="obdate" placeholder="" name="obdate">
                             </div>
-                        </div>
-
-                    </div>
 
 
+              </div>
 
-                    <button type="submit" value="submit" class="btn btn-primary">Submit</button>
-                </form>
+            </div>
+</div>
 
+
+            <a href="javascript:void(0);" class="add_lwa" title="Add field"><img src="/images/addbutton.png"
+                width="25px" height="auto" /></a>
+            <a href="javascript:void(0);" class="remove_lwa" title="Remove field"><img src="/images/removebutton.png"
+                width="25px" height="auto" /></a>
+
+            <div class="form-group row">
+              <a onclick="Add()" class="btn btn-success" id="">OK</a>
+            </div>
+
+
+
+
+
+
+
+            <button type="submit" class="btn btn-primary">SAVE</button>
+
+
+
+            <div class="form-group row" style="">
+              <label for="colFormLabel" class="col-sm-5 col-form-label">datedays</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="datedays" placeholder="" name="datedays">
+              </div>
 
 
             </div>
+
+
+            <div class="form-group row" style="">
+              <label for="colFormLabel" class="col-sm-2 col-form-label">LWA</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="fieldnames" placeholder="" name="fieldnames">
+              </div>
+            </div>
+
+
+          </form>
         </div>
+      </div>
     </div>
 
-
 </section>
-
-
 <script>
 
-    $(document).ready(function () {
-        var i = 1;
-        $("#add_row").click(function () {
-            b = i - 1;
-            $('#addr' + i).html($('#addr' + b).html()).find('td:first-child').html(i + 1);
-            $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
-            i++;
-        });
-        $("#delete_row").click(function () {
-            if (i > 1) {
-                $("#addr" + (i - 1)).html('');
-                i--;
-            }
-        });
+  $(document).ready(function () {
+    var maxField = 100;
+    var addLWA = $('.add_lwa');
+    var removeLWA = $('.remove_lwa');
+    var wrapper = $('.card1');
+    var fieldHTML = '<div class="card" style=""><div class="card-body"><div class="col-sm-8"><input type="text" class="form-control" id="field" placeholder="" name="field[]"></div></div></div>'
+    var x = 1;
 
+    $(addLWA).click(function () {
+      if (x < maxField) {
+        x++;
+        $(wrapper).append(fieldHTML);
+      }
+    });
+    $(removeLWA).click(function () {
+      if (x > 1) {
+        $(wrapper).children().last().remove();
+        x--
+      }
     });
 
 
 
 
+  });
+
+
+
+
+
+  function Add() {
+
+    var lwa = $("input[name='field[]']").map(function () { return $(this).val(); }).get();
+    document.form.fieldnames.value = lwa;
+
+
+    // nonqualifying period
+    var fieldnames = document.form.fieldnames.value.split(',');
+
+    var fielddates = Array();
+    for (k = 0; k < fieldnames.length; k++) {
+      fielddates[k] = new Date(fieldnames[k]).getTime();
+    }
+    var lwadays = 0;
+    for (var i = 0; i < fielddates.length; i = i + 2) {
+      lwadays = lwadays + ((fielddates[i + 1] - fielddates[i]) / 86400000 + 1)
+    }
+
+    if (!lwadays) {
+      lwadays = 0
+    }
+
+    document.form.datedays.value = lwadays
+
+
+
+
+
+
+  }
 
 </script>
