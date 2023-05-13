@@ -24,6 +24,9 @@ router.get('/', function(req, res, next) {
 router.get('/add-govt', function(req, res){
   res.render('admin/add-govt',{admin:true})
 });
+router.get('/add-sampleel', function(req, res){
+  res.render('admin/sampleel',{admin:true})
+});
 router.post('/add-govt', (req, res) => {
   var collectname = collections.GOVT_COLLECTION;
   govtHelpers.addItem(req.body,collectname,(id) => {
