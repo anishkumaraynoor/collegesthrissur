@@ -1,10 +1,14 @@
 var express = require('express');
 var collection = require('../config/collections');
 
+
+
+
 const { render, response } = require('../app');
 const userHelpers = require('../helpers/user-helpers');
 const govtHelpers = require('../helpers/govt-helpers');
-const imageHelpers = require('../helpers/image-helpers')
+const imageHelpers = require('../helpers/image-helpers');
+const elsHelpers = require('../helpers/els-helpers')
 var router = express.Router();
 
 /* GET home page. */
@@ -63,10 +67,10 @@ router.get('/view-govtcoll', function (req, res, next) {
 router.get('/edit-govtcoll/:id', async (req, res) => {
   let user = req.session.user;
   var collectname = collection.GOVT_COLLECTION;
-  let govtcoll = await govtHelpers.getItemDetails(req.params.id,collectname);
+  let govtcoll = await govtHelpers.getItemDetails(req.params.id, collectname);
   console.log(govtcoll);
   var items = govtcoll.items;
-    var allitems = govtcoll.allitems;
+  var allitems = govtcoll.allitems;
   res.render('user/edit-govtcoll', { items, allitems, user })
 })
 
@@ -86,10 +90,22 @@ router.get('/view-file', function (req, res, next) {
 
 router.get('/edit-file/:id', function (req, res, next) {
   let fileId = req.params.id
-  const file = './public/file-images/'+fileId+'.pdf';
+  const file = './public/file-images/' + fileId + '.pdf';
   res.download(file);
-  
-})
+
+});
+
+router.get('/add-els', function (req, res, next) {
+  let user = req.session.user;
+  res.render('user/add-els', { user });
+});
+
+router.post('/view-els', (req, res) => {
+  elsHelpers.elsWork(req.body).then((elsdata) => {
+    console.log(elsdata);
+    res.render('user/view-els',{elsdata});
+  })
+});
 
 
 module.exports = router;

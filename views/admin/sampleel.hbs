@@ -98,8 +98,9 @@
                     
                         <button onclick="Next()" type="submit" value="submit" class="btn btn-primary">PRINT</button>
 
-                        <div class="form-group row invisible">                    
+                        <div class="form-group row">                    
                             <div class="col-sm-12">
+                                <label for="" class="col-sm-2 col-form-label">Lists</label>
                                 <input type="text" class="form-control" id="oblist" name="oblist">
                                 <input type="text" class="form-control" id="creditfromlist" name="creditfromlist">
                                 <input type="text" class="form-control" id="credittolist" name="credittolist">
@@ -308,21 +309,16 @@
 
 
         function Next(){ 
-            var listob = document.form.ob.value;
-            oblist.push(listob);
-            document.form.oblist.value = oblist; 
-            var listcreditdays = document.form.duty.value;
-            creditdayslist.push(listcreditdays);
-            document.form.creditdayslist.value = creditdayslist; 
-            var listcredit = document.form.credit.value;
-            creditlist.push(listcredit);
-            document.form.creditlist.value = creditlist;
-            var listleavedays = document.form.ldays.value;
-            leavedayslist.push(listleavedays);
-            document.form.leavedayslist.value = leavedayslist;
-            var listcbdate = document.form.cbd.value;
-            cbdatelist.push(listcbdate);
-            document.form.cbdatelist.value = cbdatelist;
+            
+            document.form.oblist.value = document.form.ob.value;
+            
+            document.form.creditdayslist.value = document.form.duty.value;
+           
+            document.form.creditlist.value = document.form.credit.value;
+            
+            document.form.leavedayslist.value = document.form.ldays.value;
+            
+            document.form.cbdatelist.value = document.form.cbd.value;
 
             var listcbfull = document.form.cbfull.value;
             cbfulllist.push(listcbfull);

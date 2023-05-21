@@ -78,7 +78,7 @@
                   </div>
                 </div>
 
-                <div class="form-group row" style="display: none">
+                <div class="form-group row" style="">
                   <div class="col-xs-3 ">
                     <input type="text" class="form-control" size="1" id="cbfull" name="cbfull[]">
                   </div>
@@ -104,6 +104,9 @@
                   <div class="col-xs-3 ">
                     <input type="text" class="form-control" size="1" id="cbd" name="cbd[]">
                   </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="eventtext" name="eventtext[]">
+                  </div>
                 </div>
               </div>
             </div>
@@ -119,7 +122,7 @@
             <a onclick="Add()" class="btn btn-success" id="">OK</a>
           </div>
 
-          <button type="submit" class="btn btn-primary">SAVE</button>
+          <button onclick="" type="submit" class="btn btn-primary">SAVE</button>
 
           <div class="form-group row" style="">
             <label for="colFormLabel" class="col-sm-5 col-form-label">datedays</label>
@@ -137,6 +140,51 @@
               <input type="text" class="form-control" id="fieldnames" placeholder="" name="fieldnames">
             </div>
           </div>
+
+                <div class="form-group row" style="">
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="obdatevalues" name="obdatevalues">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="eventvalues" name="eventvalues">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="daysvalues" name="daysvalues">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="fromvalues" name="fromvalues">
+                  </div>
+
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="tovalues" name="tovalues">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="cbdatevalues" name="cbdatevalues">
+                  </div>
+                 
+                </div>
+                <div class="form-group row" style="">
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="cbvalues" name="cbvalues">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="obvalues" name="obvalues">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="totalvalues" name="totalvalues">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="dutyvalues" name="dutyvalues">
+                  </div>
+
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="creditvalues" name="creditvalues">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="2" id="ldaysvalues" name="ldaysvalues">
+                  </div>
+                 
+                </div>
 
 
         </form>
@@ -200,22 +248,34 @@
 
   function Collect() {
     var obdatevalues = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get();
-    var obfullvalues = $("input[name='obfull[]']").map(function () { return $(this).val(); }).get();
-    var fractionvalues = $("input[name='fraction[]']").map(function () { return $(this).val(); }).get();
+    //var obfullvalues = $("input[name='obfull[]']").map(function () { return $(this).val(); }).get();
+    //var fractionvalues = $("input[name='fraction[]']").map(function () { return $(this).val(); }).get();
     var eventvalues = $("input[name='event[]']").map(function () { return $(this).val(); }).get();
     var daysvalues = $("input[name='days[]']").map(function () { return $(this).val(); }).get();
     var fromvalues = $("input[name='from[]']").map(function () { return $(this).val(); }).get();
     var tovalues = $("input[name='to[]']").map(function () { return $(this).val(); }).get();
     var cbdatevalues = $("input[name='cbdate[]']").map(function () { return $(this).val(); }).get();
     var cbvalues = $("input[name='cb[]']").map(function () { return $(this).val(); }).get();
-    var cbfullvalues = $("input[name='cbfull[]']").map(function () { return $(this).val(); }).get();
-    var cbfvalues = $("input[name='cbf[]']").map(function () { return $(this).val(); }).get();
+    //var cbfullvalues = $("input[name='cbfull[]']").map(function () { return $(this).val(); }).get();
+    //var cbfvalues = $("input[name='cbf[]']").map(function () { return $(this).val(); }).get();
     var obvalues = $("input[name='ob[]']").map(function () { return $(this).val(); }).get();
     var totalvalues = $("input[name='total[]']").map(function () { return $(this).val(); }).get();
     var dutyvalues = $("input[name='duty[]']").map(function () { return $(this).val(); }).get();
     var creditvalues = $("input[name='credit[]']").map(function () { return $(this).val(); }).get();
     var ldaysvalues = $("input[name='ldays[]']").map(function () { return $(this).val(); }).get();
-    var cbdvalues = $("input[name='cbd[]']").map(function () { return $(this).val(); }).get();
+    //var cbdvalues = $("input[name='cbd[]']").map(function () { return $(this).val(); }).get();
+    document.form.obdatevalues.value = obdatevalues
+    document.form.eventvalues.value = eventvalues
+    document.form.daysvalues.value = daysvalues
+    document.form.fromvalues.value = fromvalues
+    document.form.tovalues.value = tovalues
+    document.form.cbdatevalues.value = cbdatevalues
+    document.form.cbvalues.value = cbvalues
+    document.form.obvalues.value = obvalues
+    document.form.totalvalues.value = totalvalues
+    document.form.dutyvalues.value = dutyvalues
+    document.form.creditvalues.value = creditvalues
+    document.form.ldaysvalues.value = ldaysvalues
   }
 
 
@@ -509,6 +569,7 @@
     }else{
       Add1()
     }
+    Collect()
   }
 
 

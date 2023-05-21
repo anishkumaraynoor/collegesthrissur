@@ -23,7 +23,7 @@
           <div class="card1">
 
             <div class="card" style="">
-              <div class="card-body">
+              <div class="card-body" id="readcard">
                 <div class="form-group row">
                   <label for="colFormLabel" class="mr-2 col-xs-2 col-form-label">OB Date</label>
                   <div class="col-xs-4">
@@ -43,17 +43,18 @@
                   <label for="" class="mr-2 col-xs-3 col-form-label">Event</label>
                   <div class="col-xs-6">
                     <select class="form-control" id="event" name="event[]" onchange="Select()">
-                      <option>Other Leaves</option>
+                      <option>CML/HPL/LWA etc.</option>
                       <option>Earned Leave</option>
                       <option>EL Surrender</option>
                     </select>
                   </div>
+                  
+                    <label for="" class="ml-2 mr-2 col-xs-3 col-form-label" id="showdayslabel" style="display: none;">days</label>
+                    <div class="col-xs-2">
+                      <input type="text" class="form-control" size="1" id="showdays" style="display: none;" placeholder="" name="days[]">
+                    </div>
+                  
 
-                  <label for="" class="ml-2 mr-2 col-xs-3 col-form-label">days</label>
-                  <div class="col-xs-2">
-                    <input type="text" class="form-control" size="1" style="display:none" id="days" placeholder=""
-                      name="days[]">
-                  </div>
                 </div>
 
                 <div class="form-group row">
@@ -61,10 +62,12 @@
                   <div class="col-xs-4">
                     <input type="date" class="form-control" id="from" name="from[]">
                   </div>
-                  <label for="" class="ml-2 mr-2 col-xs-2 col-form-label">To</label>
-                  <div class="col-xs-4">
-                    <input type="date" class="form-control" id="to" name="to[]">
-                  </div>
+                  
+                    <label for="" class="ml-2 mr-2 col-xs-2 col-form-label" id="showtolabel">To</label>
+                    <div class="col-xs-4">
+                      <input type="date" class="form-control" id="showto" name="to[]">
+                    </div>
+                  
                 </div>
 
                 <div class="form-group row" id="show" style="display: none">
@@ -104,6 +107,18 @@
                   <div class="col-xs-3 ">
                     <input type="text" class="form-control" size="1" id="cbd" name="cbd[]">
                   </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="eventtext" name="eventtext[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="creditf" name="creditf[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="creditt" name="creditt[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="obd" name="obd[]">
+                  </div>
                 </div>
               </div>
             </div>
@@ -119,7 +134,7 @@
             <a onclick="Add()" class="btn btn-success" id="">OK</a>
           </div>
 
-          <button type="submit" class="btn btn-primary">SAVE</button>
+          <button onclick="" type="submit" class="btn btn-primary">SAVE</button>
 
           <div class="form-group row" style="">
             <label for="colFormLabel" class="col-sm-5 col-form-label">datedays</label>
@@ -138,6 +153,61 @@
             </div>
           </div>
 
+          <div class="form-group row" style="">
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="obdatevalues" name="obdatevalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="eventvalues" name="eventvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="daysvalues" name="daysvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="fromvalues" name="fromvalues">
+            </div>
+
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="tovalues" name="tovalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="cbdatevalues" name="cbdatevalues">
+            </div>
+
+          </div>
+          <div class="form-group row" style="">
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="cbvalues" name="cbvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="obvalues" name="obvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="totalvalues" name="totalvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="dutyvalues" name="dutyvalues">
+            </div>
+
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="creditvalues" name="creditvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="ldaysvalues" name="ldaysvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="cbdvalues" name="cbdvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="creditfromvalues" name="creditfromvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="credittovalues" name="credittovalues">
+            </div>
+
+
+          </div>
+
 
         </form>
       </div>
@@ -154,18 +224,18 @@
     var addLWA = $('.add_lwa');
     var removeLWA = $('.remove_lwa');
     var wrapper = $('.card1');
-    
+
     var x = 1;
 
     $(addLWA).click(function () {
       if (x < maxField) {
         x++;
-        var i = x-1
-        var fieldHTML = '<div class="card" style=""><div class="card-body"><div class="form-group row"><label for="colFormLabel" class="mr-2 col-xs-2 col-form-label">OB Date</label><div class="col-xs-4"><input type="date" class="form-control" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2 col-form-label">OB</label><div class="col-xs-2"><input type="text" class="form-control" size="3" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="form-control" size="1" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2 col-form-label">/11</label></div><div class="row"><label for="" class="mr-2 col-xs-3 col-form-label">Event</label><div class="col-xs-6"><select class="form-control" id="event" name="event[]" onchange="Select()"><option>Other Leaves</option><option>Earned Leave</option><option>EL Surrender</option></select></div><label for="" class="ml-2 mr-2 col-xs-3 col-form-label">days</label><div class="col-xs-2"><input type="text" class="form-control" size="1" style="display:none" id="days" placeholder="" name="days[]"></div></div><div class="form-group row"><label for="" class="mr-2 col-xs-2 col-form-label">From</label><div class="col-xs-4"><input type="date" class="form-control" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2 col-form-label">To</label><div class="col-xs-4"><input type="date" class="form-control" id="to" name="to[]"></div></div><div class="form-group row" id="show'+i+'" style="display: none;"><label for="" class="mr-2 col-xs-2 col-form-label">CB Date</label><div class="col-xs-4"><input type="date" class="form-control" id="cbdate" name="cbdate[]"></div><label for="" class="ml-2 mr-2 col-xs-2 col-form-label">CB</label><div class="col-xs-4"><input type="text" class="form-control" size="9" id="cb" name="cb[]"></div></div><div class="form-group row" style="display: none;"><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbd" name="cbd[]"></div></div></div></div>'
+        var i = x - 1
+        var fieldHTML = '<div class="card" style=""><div class="card-body" id="readcard' + i + '"><div class="form-group row"><label for="colFormLabel" class="mr-2 col-xs-2 col-form-label">OB Date</label><div class="col-xs-4"><input type="date" class="form-control" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2 col-form-label">OB</label><div class="col-xs-2"><input type="text" class="form-control" size="3" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="form-control" size="1" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2 col-form-label">/11</label></div><div class="row"><label for="" class="mr-2 col-xs-3 col-form-label">Event</label><div class="col-xs-6"><select class="form-control" id="event" name="event[]" onchange="Select()"><option>CML/HPL/LWA etc.</option><option>Earned Leave</option><option>EL Surrender</option></select></div><label for="" class="ml-2 mr-2 col-xs-3 col-form-label" id="showdayslabel' + i + '" style="display: none;">days</label><div class="col-xs-2"><input type="text" class="form-control" size="1" id="showdays' + i + '" style="display: none;" placeholder="" name="days[]"></div></div><div class="form-group row"><label for="" class="mr-2 col-xs-2 col-form-label">From</label><div class="col-xs-4"><input type="date" class="form-control" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2 col-form-label" id="showtolabel' + i + '">To</label><div class="col-xs-4"><input type="date" class="form-control" id="showto' + i + '" name="to[]"></div></div><div class="form-group row" id="show' + i + '" style="display: none;"><label for="" class="mr-2 col-xs-2 col-form-label">CB Date</label><div class="col-xs-4"><input type="date" class="form-control" id="cbdate" name="cbdate[]"></div><label for="" class="ml-2 mr-2 col-xs-2 col-form-label">CB</label><div class="col-xs-4"><input type="text" class="form-control" size="9" id="cb" name="cb[]"></div></div><div class="form-group row" style="display: none;"><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbd" name="cbd[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="eventtext" name="eventtext[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="creditf" name="creditf[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="creditt" name="creditt[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="obd" name="obd[]"></div></div></div></div>'
         $(wrapper).append(fieldHTML);
-        var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length-1
-        
-        var datecb = document.form.cbdate[y-1].value;
+        var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+
+        var datecb = document.form.cbdate[y - 1].value;
         var cbdate = new Date(datecb);
         cbdate.setDate(cbdate.getDate() + 1);
         var dd = "0" + cbdate.getDate();
@@ -176,9 +246,9 @@
         var formatteddate = yy + '-' + mm + '-' + dd;
         document.form.obdate[y].value = formatteddate;
 
-        document.form.obfull[y].value = document.form.cbfull[y-1].value;
-        document.form.fraction[y].value = document.form.cbf[y-1].value;
-    
+        document.form.obfull[y].value = document.form.cbfull[y - 1].value;
+        document.form.fraction[y].value = document.form.cbf[y - 1].value;
+
       }
     });
     $(removeLWA).click(function () {
@@ -194,28 +264,41 @@
   });
 
 
-  document.getElementById('cbdate').readOnly = true;
-  document.getElementById('cb').readOnly = true;
+  
 
 
   function Collect() {
     var obdatevalues = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get();
-    var obfullvalues = $("input[name='obfull[]']").map(function () { return $(this).val(); }).get();
-    var fractionvalues = $("input[name='fraction[]']").map(function () { return $(this).val(); }).get();
-    var eventvalues = $("input[name='event[]']").map(function () { return $(this).val(); }).get();
     var daysvalues = $("input[name='days[]']").map(function () { return $(this).val(); }).get();
     var fromvalues = $("input[name='from[]']").map(function () { return $(this).val(); }).get();
     var tovalues = $("input[name='to[]']").map(function () { return $(this).val(); }).get();
     var cbdatevalues = $("input[name='cbdate[]']").map(function () { return $(this).val(); }).get();
     var cbvalues = $("input[name='cb[]']").map(function () { return $(this).val(); }).get();
-    var cbfullvalues = $("input[name='cbfull[]']").map(function () { return $(this).val(); }).get();
-    var cbfvalues = $("input[name='cbf[]']").map(function () { return $(this).val(); }).get();
     var obvalues = $("input[name='ob[]']").map(function () { return $(this).val(); }).get();
     var totalvalues = $("input[name='total[]']").map(function () { return $(this).val(); }).get();
     var dutyvalues = $("input[name='duty[]']").map(function () { return $(this).val(); }).get();
     var creditvalues = $("input[name='credit[]']").map(function () { return $(this).val(); }).get();
     var ldaysvalues = $("input[name='ldays[]']").map(function () { return $(this).val(); }).get();
     var cbdvalues = $("input[name='cbd[]']").map(function () { return $(this).val(); }).get();
+    var eventtextvalues = $("input[name='eventtext[]']").map(function () { return $(this).val(); }).get();
+    var creditfvalues = $("input[name='creditf[]']").map(function () { return $(this).val(); }).get();
+    var credittvalues = $("input[name='creditt[]']").map(function () { return $(this).val(); }).get();
+    var obdvalues = $("input[name='obd[]']").map(function () { return $(this).val(); }).get();
+    document.form.obdatevalues.value = obdvalues
+    document.form.eventvalues.value = eventtextvalues
+    document.form.daysvalues.value = daysvalues
+    document.form.fromvalues.value = fromvalues
+    document.form.tovalues.value = tovalues
+    document.form.cbdatevalues.value = cbdvalues
+    document.form.cbvalues.value = cbvalues
+    document.form.obvalues.value = obvalues
+    document.form.totalvalues.value = totalvalues
+    document.form.dutyvalues.value = dutyvalues
+    document.form.creditvalues.value = creditvalues
+    document.form.ldaysvalues.value = ldaysvalues
+    document.form.fieldnames.value = obdvalues
+    document.form.creditfromvalues.value = creditfvalues
+    document.form.credittovalues.value = credittvalues
   }
 
 
@@ -256,7 +339,7 @@
       leavedays = document.form.days.value;
     }
 
-    if (document.form.event.value == "Other Leaves") {
+    if (document.form.event.value == "CML/HPL/LWA etc.") {
       var ol = leavedays;
       var el = 0;
       var sur = 0;
@@ -351,25 +434,60 @@
     document.form.cbfull.value = cbfull;
     document.form.cbf.value = cbf;
 
-    document.getElementById('obdate').disabled = true;
-    document.getElementById('obfull').disabled = true;
-    document.getElementById('fraction').disabled = true;
-    document.getElementById("event").disabled = true;
-    document.getElementById('days').disabled = true;
-    document.getElementById('from').disabled = true;
-    document.getElementById('to').disabled = true;
-    document.getElementById('days').style.display = 'block';
+    var dateob = document.form.obdate.value;
+    var obdate = new Date(dateob);
+    obdate.setDate(obdate.getDate());
+    var ddob = "0" + obdate.getDate();
+    var mmob = "0" + (obdate.getMonth() + 1);
+    mmob = mmob.slice(-2);
+    ddob = ddob.slice(-2);
+    var yyob = obdate.getFullYear();
+    var obd = ddob + '-' + mmob + '-' + yyob;
+    document.form.obd.value = obd;
+
+
+    var creditf = document.form.obdate.value;
+    var fcredit = new Date(creditf)
+    fcredit.setDate(fcredit.getDate());
+    var ddfc = "0" + fcredit.getDate();
+    var mmfc = "0" + (fcredit.getMonth() + 1);
+    mmfc = mmfc.slice(-2);
+    ddfc = ddfc.slice(-2);
+    var yyfc = fcredit.getFullYear();
+    var listcreditfrom = ddfc + '-' + mmfc + '-' + yyfc;
+
+
+    var creditt = document.form.from.value;
+    var tcredit = new Date(creditt);
+    tcredit.setDate(tcredit.getDate() - 1);
+    var ddtc = "0" + tcredit.getDate();
+    var mmtc = "0" + (tcredit.getMonth() + 1);
+    mmtc = mmtc.slice(-2);
+    ddtc = ddtc.slice(-2);
+    var yytc = tcredit.getFullYear();
+    var formatteddatetc = ddtc + '-' + mmtc + '-' + yytc;
+    var listcreditto = formatteddatetc;
+
+    document.form.creditf.value = listcreditfrom
+    document.form.creditt.value = listcreditto
+
+
+
+
+    
 
     document.form.days.value = leavedays;
+
+    document.form.eventtext.value = document.form.event.value
 
   }
 
 
   function Add2() {
 
-    var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length-1
+    var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
 
-    document.getElementById("show"+y).style = 'block'
+    document.getElementById("show" + y).style = 'block'
 
     var datef = document.form.obdate[y].value;
     var datet = document.form.to[y].value;
@@ -394,7 +512,7 @@
       leavedays = document.form.days[y].value;
     }
 
-    if (document.form.event[y].value == "Other Leaves") {
+    if (document.form.event[y].value == "CML/HPL/LWA etc.") {
       var ol = leavedays;
       var el = 0;
       var sur = 0;
@@ -489,39 +607,104 @@
     document.form.cbfull[y].value = cbfull;
     document.form.cbf[y].value = cbf;
 
-    document.getElementById('obdate').disabled = true;
-    document.getElementById('obfull').disabled = true;
-    document.getElementById('fraction').disabled = true;
-    document.getElementById("event").disabled = true;
-    document.getElementById('days').disabled = true;
-    document.getElementById('from').disabled = true;
-    document.getElementById('to').disabled = true;
-    document.getElementById('days').style.display = 'block';
+    var dateob = document.form.obdate[y].value;
+    var obdate = new Date(dateob);
+    obdate.setDate(obdate.getDate());
+    var ddob = "0" + obdate.getDate();
+    var mmob = "0" + (obdate.getMonth() + 1);
+    mmob = mmob.slice(-2);
+    ddob = ddob.slice(-2);
+    var yyob = obdate.getFullYear();
+    var obd = ddob + '-' + mmob + '-' + yyob;
+    document.form.obd[y].value = obd;
+
+    var creditf = document.form.obdate[y].value;
+    var fcredit = new Date(creditf)
+    fcredit.setDate(fcredit.getDate());
+    var ddfc = "0" + fcredit.getDate();
+    var mmfc = "0" + (fcredit.getMonth() + 1);
+    mmfc = mmfc.slice(-2);
+    ddfc = ddfc.slice(-2);
+    var yyfc = fcredit.getFullYear();
+    var listcreditfrom = ddfc + '-' + mmfc + '-' + yyfc;
+
+
+    var creditt = document.form.from[y].value;
+    var tcredit = new Date(creditt);
+    tcredit.setDate(tcredit.getDate() - 1);
+    var ddtc = "0" + tcredit.getDate();
+    var mmtc = "0" + (tcredit.getMonth() + 1);
+    mmtc = mmtc.slice(-2);
+    ddtc = ddtc.slice(-2);
+    var yytc = tcredit.getFullYear();
+    var formatteddatetc = ddtc + '-' + mmtc + '-' + yytc;
+    var listcreditto = formatteddatetc;
+
+    document.form.creditf[y].value = listcreditfrom
+    document.form.creditt[y].value = listcreditto
+
+
+
+    
 
     document.form.days[y].value = leavedays;
 
+    document.form.eventtext[y].value = document.form.event[y].value
+
   }
 
 
-  function Add(){
-    if(obdate[0]){
+  function Add() {
+    if (obdate[0]) {
       Add2()
-    }else{
+    } else {
       Add1()
     }
+    Collect()
   }
 
 
 
-  function Select() {
+  function Select1() {
+    
     if (document.form.event.value == "EL Surrender") {
-      document.getElementById('to').style.display = 'none';
-      document.getElementById('days').style.display = 'block';
+      document.getElementById('showto').style.display = 'none';
+      document.getElementById('showtolabel').style.display = 'none';
+      document.getElementById('showdays').style.display = 'block';
+      document.getElementById('showdayslabel').style.display = 'block';
     } else {
-      document.getElementById('to').style.display = 'block';
-      document.getElementById('days').style.display = 'none';
+      document.getElementById('showto').style.display = 'block';
+      document.getElementById('showtolabel').style.display = 'block';
+      document.getElementById('showdays').style.display = 'none';
+      document.getElementById('showdayslabel').style.display = 'none';
     }
 
+  }
+
+  function Select2() {
+
+    var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+    
+    if (document.form.event[y].value == "EL Surrender") {
+      document.getElementById('showto'+y).style.display = 'none';
+      document.getElementById('showtolabel'+y).style.display = 'none';
+      document.getElementById('showdays'+y).style.display = 'block';
+      document.getElementById('showdayslabel'+y).style.display = 'block';
+    } else {
+      document.getElementById('showto'+y).style.display = 'block';
+      document.getElementById('showtolabel'+y).style.display = 'block';
+      document.getElementById('showdays'+y).style.display = 'none';
+      document.getElementById('showdayslabel'+y).style.display = 'none';
+    }
+
+  }
+
+  function Select() {
+    if (obdate[0]) {
+      Select2()
+    } else {
+      Select1()
+    }
   }
 
 </script>
