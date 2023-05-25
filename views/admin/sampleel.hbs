@@ -7,117 +7,121 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
   integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-
+<style type="text/css">     
+    select {
+      height: 28px;
+    }
+</style>
 
 
 <section>
 
   <div class="container mt-3">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-6 mt-5 mb-5">
         <div>
-          <h2 class="text-center mb-4">EL Calculation</h2>
+          <h2 class="text-center">EL Calculation</h2>
         </div>
 
         <form action="/view-els" method="POST" name="form">
           <div class="card1">
 
             <div class="card" style="">
-              <div class="card-body" id="readcard">
-                <div class="form-group row">
-                  <label for="colFormLabel" class="mr-2 col-xs-2 col-form-label">OB Date</label>
+              <div class="card-body bg-primary" id="readcard">
+                <div class="row">
+                  <label for="colFormLabel" class="mr-2 col-xs-2 ">OB Date</label>
                   <div class="col-xs-4">
-                    <input type="date" class="form-control" id="obdate" placeholder="" name="obdate[]">
+                    <input type="date" class="" id="obdate" placeholder="" name="obdate[]">
                   </div>
-                  <label for="colFormLabel" class="mr-2 ml-2 col-xs-2 col-form-label">OB</label>
+                  <label for="colFormLabel" class="mr-2 ml-2 col-xs-2">OB</label>
                   <div class="col-xs-2">
-                    <input type="text" class="form-control" size="3" id="obfull" placeholder="" name="obfull[]">
+                    <input type="text" class="" size="3" id="obfull" placeholder="" name="obfull[]">
                   </div>
                   <div class="col-xs-2">
-                    <input type="text" class="form-control" size="1" id="fraction" placeholder="" name="fraction[]">
+                    <input type="text" class="" size="1" id="fraction" placeholder="" name="fraction[]">
                   </div>
-                  <label for="colFormLabel" class="ml-1 col-xs-2 col-form-label">/11</label>
+                  <label for="colFormLabel" class="ml-1 col-xs-2">/11</label>
                 </div>
 
-                <div class="row">
-                  <label for="" class="mr-2 col-xs-3 col-form-label">Event</label>
+                <div class="row mt-2">
+                  <label for="" class="mr-2 col-xs-3">Event</label>
                   <div class="col-xs-6">
-                    <select class="form-control" id="event" name="event[]" onchange="Select()">
+                    <select class="" id="event" name="event[]" onchange="Select()">
                       <option>CML/HPL/LWA etc.</option>
                       <option>Earned Leave</option>
                       <option>EL Surrender</option>
                     </select>
                   </div>
                   
-                    <label for="" class="ml-2 mr-2 col-xs-3 col-form-label" id="showdayslabel" style="display: none;">days</label>
+                    <label for="" class="ml-2 mr-2 col-xs-3" id="showdayslabel" style="display: none;">days</label>
                     <div class="col-xs-2" id="showdays" style="display: none;">
-                      <input type="text" class="form-control" size="1" id="days" style="" placeholder="" name="days[]">
+                      <input type="text" class="" size="1" id="days" style="" placeholder="" name="days[]">
                     </div>
                   
 
                 </div>
 
-                <div class="form-group row">
-                  <label for="" class="mr-2 col-xs-2 col-form-label">From</label>
+                <div class="row">
+                  <label for="" class="mr-2 col-xs-2">From</label>
                   <div class="col-xs-4">
-                    <input type="date" class="form-control" id="from" name="from[]">
+                    <input type="date" class="" id="from" name="from[]">
                   </div>
                   
-                    <label for="" class="ml-2 mr-2 col-xs-2 col-form-label" id="showtolabel">To</label>
+                    <label for="" class="ml-2 mr-2 col-xs-2" id="showtolabel">To</label>
                     <div class="col-xs-4" id="showto">
-                      <input type="date" class="form-control" id="to" name="to[]">
+                      <input type="date" class="" id="to" name="to[]">
                     </div>
                   
                 </div>
 
-                <div class="form-group row" id="show" style="display: none">
-                  <label for="" class="mr-2 col-xs-2 col-form-label">CB Date</label>
+                <div class="row" id="show" style="display: none">
+                  <label for="" class="mr-2 col-xs-2">CB Date</label>
                   <div class="col-xs-4">
-                    <input type="date" class="form-control" id="cbdate" name="cbdate[]">
+                    <input type="date" class="" id="cbdate" name="cbdate[]">
                   </div>
-                  <label for="" class="ml-2 mr-2 col-xs-2 col-form-label">CB</label>
+                  <label for="" class="ml-2 mr-2 col-xs-2">CB</label>
                   <div class="col-xs-4">
-                    <input type="text" class="form-control" size="9" id="cb" name="cb[]">
+                    <input type="text" class="" size="9" id="cb" name="cb[]">
                   </div>
                 </div>
 
-                <div class="form-group row" style="display: none">
+                <div class="row" style="display: none">
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="cbfull" name="cbfull[]">
+                    <input type="text" class="" size="1" id="cbfull" name="cbfull[]">
                   </div>
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="cbf" name="cbf[]">
+                    <input type="text" class="" size="1" id="cbf" name="cbf[]">
                   </div>
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="ob" name="ob[]">
+                    <input type="text" class="" size="1" id="ob" name="ob[]">
                   </div>
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="total" name="total[]">
+                    <input type="text" class="" size="1" id="total" name="total[]">
                   </div>
 
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="duty" name="duty[]">
+                    <input type="text" class="" size="1" id="duty" name="duty[]">
                   </div>
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="credit" name="credit[]">
+                    <input type="text" class="" size="1" id="credit" name="credit[]">
                   </div>
                   <div class="col-xs-3 ">
                     <input type="text" class="form-control" size="1" id="ldays" name="ldays[]">
                   </div>
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="cbd" name="cbd[]">
+                    <input type="text" class="" size="1" id="cbd" name="cbd[]">
                   </div>
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="eventtext" name="eventtext[]">
+                    <input type="text" class="" size="1" id="eventtext" name="eventtext[]">
                   </div>
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="creditf" name="creditf[]">
+                    <input type="text" class="" size="1" id="creditf" name="creditf[]">
                   </div>
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="creditt" name="creditt[]">
+                    <input type="text" class="" size="1" id="creditt" name="creditt[]">
                   </div>
                   <div class="col-xs-3 ">
-                    <input type="text" class="form-control" size="1" id="obd" name="obd[]">
+                    <input type="text" class="" size="1" id="obd" name="obd[]">
                   </div>
                 </div>
               </div>
@@ -125,35 +129,30 @@
           </div>
 
 
-          <a href="javascript:void(0);" class="add_lwa" title="Add field"><img src="/images/addbutton.png" width="25px"
+          <div class="form-group row">
+            <a onclick="Add()" class="btn btn-success" id="">OK</a>
+<a href="javascript:void(0);" class="add_lwa" title="Add field"><img src="/images/addbutton.png" width="25px"
               height="auto" /></a>
           <a href="javascript:void(0);" class="remove_lwa" title="Remove field"><img src="/images/removebutton.png"
               width="25px" height="auto" /></a>
 
-          <div class="form-group row">
-            <a onclick="Add()" class="btn btn-success" id="">OK</a>
-          </div>
 
-          <button onclick="" type="submit" class="btn btn-primary">SAVE</button>
-
-          <div class="form-group row" style="">
-            <label for="colFormLabel" class="col-sm-5 col-form-label">datedays</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" id="datedays" placeholder="" name="datedays">
-            </div>
+          <button onclick="" type="submit" class="btn btn-primary">PRINT</button>
 
 
           </div>
 
+               
 
-          <div class="form-group row" style="">
+
+          <div class="form-group row" style="display:none">
             <label for="colFormLabel" class="col-sm-2 col-form-label">LWA</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="fieldnames" placeholder="" name="fieldnames">
             </div>
           </div>
 
-          <div class="form-group row" style="">
+          <div class="form-group row" style="display:none">
             <div class="col-xs-3 ">
               <input type="text" class="form-control" size="2" id="obdatevalues" name="obdatevalues">
             </div>
@@ -175,7 +174,7 @@
             </div>
 
           </div>
-          <div class="form-group row" style="">
+          <div class="form-group row" style="display:none">
             <div class="col-xs-3 ">
               <input type="text" class="form-control" size="2" id="cbvalues" name="cbvalues">
             </div>
@@ -231,7 +230,7 @@
       if (x < maxField) {
         x++;
         var i = x - 1
-        var fieldHTML = '<div class="card" style=""><div class="card-body" id="readcard' + i + '"><div class="form-group row"><label for="colFormLabel" class="mr-2 col-xs-2 col-form-label">OB Date</label><div class="col-xs-4"><input type="date" class="form-control" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2 col-form-label">OB</label><div class="col-xs-2"><input type="text" class="form-control" size="3" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="form-control" size="1" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2 col-form-label">/11</label></div><div class="row"><label for="" class="mr-2 col-xs-3 col-form-label">Event</label><div class="col-xs-6"><select class="form-control" id="event" name="event[]" onchange="Select()"><option>CML/HPL/LWA etc.</option><option>Earned Leave</option><option>EL Surrender</option></select></div><label for="" class="ml-2 mr-2 col-xs-3 col-form-label" id="showdayslabel' + i + '" style="display: none;">days</label><div class="col-xs-2" id="showdays' + i + '" style="display: none;"><input type="text" class="form-control" size="1" id="days" placeholder="" name="days[]"></div></div><div class="form-group row"><label for="" class="mr-2 col-xs-2 col-form-label">From</label><div class="col-xs-4"><input type="date" class="form-control" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2 col-form-label" id="showtolabel' + i + '">To</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="form-control" id="to" name="to[]"></div></div><div class="form-group row" id="show' + i + '" style="display: none;"><label for="" class="mr-2 col-xs-2 col-form-label">CB Date</label><div class="col-xs-4"><input type="date" class="form-control" id="cbdate" name="cbdate[]"></div><label for="" class="ml-2 mr-2 col-xs-2 col-form-label">CB</label><div class="col-xs-4"><input type="text" class="form-control" size="9" id="cb" name="cb[]"></div></div><div class="form-group row" style="display: none;"><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbd" name="cbd[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="eventtext" name="eventtext[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="creditf" name="creditf[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="creditt" name="creditt[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="obd" name="obd[]"></div></div></div></div>'
+        var fieldHTML = '<div class="card" style=""><div class="card-body" id="readcard' + i + '"><div class="row"><label for="colFormLabel" class="mr-2 col-xs-2">OB Date</label><div class="col-xs-4"><input type="date" class="" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2">OB</label><div class="col-xs-2"><input type="text" class="" size="3" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="" size="1" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2">/11</label></div><div class="row mt-2"><label for="" class="mr-2 col-xs-3">Event</label><div class="col-xs-6"><select class="" id="event" name="event[]" onchange="Select()"><option>CML/HPL/LWA etc.</option><option>Earned Leave</option><option>EL Surrender</option></select></div><label for="" class="ml-2 mr-2 col-xs-3" id="showdayslabel' + i + '" style="display: none;">days</label><div class="col-xs-2" id="showdays' + i + '" style="display: none;"><input type="text" class="" size="1" id="days" placeholder="" name="days[]"></div></div><div class="row"><label for="" class="mr-2 col-xs-2">From</label><div class="col-xs-4"><input type="date" class="" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2" id="showtolabel' + i + '">To</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="" id="to" name="to[]"></div></div><div class="row" id="show' + i + '" style="display: none;"><label for="" class="mr-2 col-xs-2">CB Date</label><div class="col-xs-4"><input type="date" class="" id="cbdate" name="cbdate[]"></div><label for="" class="ml-2 mr-2 col-xs-2">CB</label><div class="col-xs-4"><input type="text" class="" size="9" id="cb" name="cb[]"></div></div><div class="row" style="display: none;"><div class="col-xs-3 "><input type="text" class="" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbd" name="cbd[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="eventtext" name="eventtext[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditf" name="creditf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditt" name="creditt[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="obd" name="obd[]"></div></div></div></div>'
         $(wrapper).append(fieldHTML);
         var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
 
@@ -248,6 +247,10 @@
 
         document.form.obfull[y].value = document.form.cbfull[y - 1].value;
         document.form.fraction[y].value = document.form.cbf[y - 1].value;
+
+        if(y%5 === 1){
+          
+        }
 
       }
     });
@@ -722,5 +725,3 @@
   }
 
 </script>
-
-<div class=""><label for="" class="mr-2 col-xs-2">From</label><div class="col-xs-4"><input type="date" class="" id="from" name="from[]"></div><label for="" class="mr-2 col-xs-2" id="showtolabel' + i + '">To</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="" id="to" name="to[]"></div></div>
