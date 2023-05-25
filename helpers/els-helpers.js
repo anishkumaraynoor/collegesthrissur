@@ -42,7 +42,11 @@ module.exports = {
             from = fromlist[i].split('-');
             leavefromlist[i] = from[2]+'-'+from[1]+'-'+from[0];
             to = tolist[i].split('-');
-            leavetolist[i] = to[2]+'-'+to[1]+'-'+to[0];      
+            leavetolist[i] = to[2]+'-'+to[1]+'-'+to[0];
+            if(tolist[i] == ""){
+                leavetolist[i] = ""
+            }
+                
         }
         
        

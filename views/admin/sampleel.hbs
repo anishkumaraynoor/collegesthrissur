@@ -1,510 +1,726 @@
-    <section>
-        <div class="container">
-        
-            <div class="row mt-4">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+  integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
 
 
 
+<section>
 
-            <a href="/add-els" class="btn btn-success ml-auto">Simple</a>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-sm-6">
+        <div>
+          <h2 class="text-center mb-4">EL Calculation</h2>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div>
-                        <h2 class="text-center mb-4">ELS Calculator</h2>
-                    </div>
-                    <form action="/view-els" method="POST" name="form">
 
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">OB Date</label>
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control" id="obdate" placeholder="" name="obdate">
-                            </div>
-                        </div>
+        <form action="/view-els" method="POST" name="form">
+          <div class="card1">
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">OB Full</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="obfull" name="obfull">
-                            </div>
-                            <label for="" class="col-sm-2 col-form-label">Fraction</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="fraction" name="fraction">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Event</label>
-                            <div class="col-sm-4">
-                                <select class="form-control" id="event" name="event" onchange="Select()">
-                                <option>Other Leaves</option>
-                                <option>Earned Leave</option>
-                                <option>EL Surrender</option>
-                            </select>
-                            </div>
-                                <label for="" class="col-sm-2 col-form-label">days</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="days" name="days">
-                            </div>
-
-
-
-                        </div>
-                        
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">From</label>
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control" id="from" name="from">
-                            </div>
-                            <label for="" class="col-sm-2 col-form-label">To</label>
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control" id="to" name="to">
-                            </div>
-                        </div>
-
-                        <a onclick="Add()" class="btn btn-success" id="add">OK</a>
-
-
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">CB Date</label>
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control" id="cbdate" name="cbdate">
-                            </div>
-                            <label for="" class="col-sm-2 col-form-label">CB</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="cb" name="cb">
-                            </div>
-                        </div>
-
-                        <div class="form-group row invisible">
-                            <div class="col-sm-3 ">
-                                <input type="text" class="form-control" id="cbfull" name="cbfull">
-                            </div>
-                            <div class="col-sm-3 ">
-                                <input type="text" class="form-control" id="cbf" name="cbf">
-                            </div>
-                            <div class="col-sm-3 ">
-                                <input type="text" class="form-control" id="ob" name="ob">
-                            </div>
-                            <div class="col-sm-3 ">
-                                <input type="text" class="form-control" id="total" name="total">
-                            </div>
-                        </div>
-
-                        <button id="next" onclick="Next()" class="btn btn-success">Next</button>
-                        <a onclick="Back()" class="btn btn-success">Back</a>
-                    
-                        <button onclick="Next()" type="submit" value="submit" class="btn btn-primary">PRINT</button>
-
-                        <div class="form-group row">                    
-                            <div class="col-sm-12">
-                                <label for="" class="col-sm-2 col-form-label">Lists</label>
-                                <input type="text" class="form-control" id="oblist" name="oblist">
-                                <input type="text" class="form-control" id="creditfromlist" name="creditfromlist">
-                                <input type="text" class="form-control" id="credittolist" name="credittolist">
-                                <input type="text" class="form-control" id="creditdayslist" name="creditdayslist">
-                                <input type="text" class="form-control" id="creditlist" name="creditlist">
-                                <input type="text" class="form-control" id="totallist" name="totallist">
-                                <input type="text" class="form-control" id="eventlist" name="eventlist">
-                                <input type="text" class="form-control" id="leavefromlist" name="leavefromlist">
-                                <input type="text" class="form-control" id="leavetolist" name="leavetolist">
-                                <input type="text" class="form-control" id="leavedayslist" name="leavedayslist">
-                                <input type="text" class="form-control" id="cblist" name="cblist">
-                                <input type="text" class="form-control" id="cbdatelist" name="cbdatelist">
-                                <input type="text" class="form-control" id="cbfulllist" name="cbfulllist">
-                                <input type="text" class="form-control" id="cbflist" name="cbflist">
-                                <input type="text" class="form-control" id="duty" name="duty">
-                                <input type="text" class="form-control" id="credit" name="credit">
-                                <input type="text" class="form-control" id="ldays" name="ldays">
-                                <input type="text" class="form-control" id="cbd" name="cbd">
-                            </div>
-                        </div>
-
-
-                        
-
-                        
-                        
-
-                    </form>
+            <div class="card" style="">
+              <div class="card-body" id="readcard">
+                <div class="form-group row">
+                  <label for="colFormLabel" class="mr-2 col-xs-2 col-form-label">OB Date</label>
+                  <div class="col-xs-4">
+                    <input type="date" class="form-control" id="obdate" placeholder="" name="obdate[]">
+                  </div>
+                  <label for="colFormLabel" class="mr-2 ml-2 col-xs-2 col-form-label">OB</label>
+                  <div class="col-xs-2">
+                    <input type="text" class="form-control" size="3" id="obfull" placeholder="" name="obfull[]">
+                  </div>
+                  <div class="col-xs-2">
+                    <input type="text" class="form-control" size="1" id="fraction" placeholder="" name="fraction[]">
+                  </div>
+                  <label for="colFormLabel" class="ml-1 col-xs-2 col-form-label">/11</label>
                 </div>
+
+                <div class="row">
+                  <label for="" class="mr-2 col-xs-3 col-form-label">Event</label>
+                  <div class="col-xs-6">
+                    <select class="form-control" id="event" name="event[]" onchange="Select()">
+                      <option>CML/HPL/LWA etc.</option>
+                      <option>Earned Leave</option>
+                      <option>EL Surrender</option>
+                    </select>
+                  </div>
+                  
+                    <label for="" class="ml-2 mr-2 col-xs-3 col-form-label" id="showdayslabel" style="display: none;">days</label>
+                    <div class="col-xs-2" id="showdays" style="display: none;">
+                      <input type="text" class="form-control" size="1" id="days" style="" placeholder="" name="days[]">
+                    </div>
+                  
+
+                </div>
+
+                <div class="form-group row">
+                  <label for="" class="mr-2 col-xs-2 col-form-label">From</label>
+                  <div class="col-xs-4">
+                    <input type="date" class="form-control" id="from" name="from[]">
+                  </div>
+                  
+                    <label for="" class="ml-2 mr-2 col-xs-2 col-form-label" id="showtolabel">To</label>
+                    <div class="col-xs-4" id="showto">
+                      <input type="date" class="form-control" id="to" name="to[]">
+                    </div>
+                  
+                </div>
+
+                <div class="form-group row" id="show" style="display: none">
+                  <label for="" class="mr-2 col-xs-2 col-form-label">CB Date</label>
+                  <div class="col-xs-4">
+                    <input type="date" class="form-control" id="cbdate" name="cbdate[]">
+                  </div>
+                  <label for="" class="ml-2 mr-2 col-xs-2 col-form-label">CB</label>
+                  <div class="col-xs-4">
+                    <input type="text" class="form-control" size="9" id="cb" name="cb[]">
+                  </div>
+                </div>
+
+                <div class="form-group row" style="display: none">
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="cbfull" name="cbfull[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="cbf" name="cbf[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="ob" name="ob[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="total" name="total[]">
+                  </div>
+
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="duty" name="duty[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="credit" name="credit[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="ldays" name="ldays[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="cbd" name="cbd[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="eventtext" name="eventtext[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="creditf" name="creditf[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="creditt" name="creditt[]">
+                  </div>
+                  <div class="col-xs-3 ">
+                    <input type="text" class="form-control" size="1" id="obd" name="obd[]">
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <script>
-        document.getElementById('days').readOnly = true;
-        document.getElementById('cbdate').readOnly = true;
-        document.getElementById('cb').readOnly = true;
 
-        var oblist = Array();
-        var creditfromlist = Array();
-        var credittolist = Array();
-        var creditdayslist = Array();
-        var creditlist = Array();
-        var totallist = Array();
-        var eventlist = Array();
-        var leavefromlist = Array();
-        var leavetolist = Array();
-        var leavedayslist = Array();
-        var cblist = Array();
-        var cbdatelist = Array();
-        var cbfulllist = Array();
-        var cbflist = Array();
+          <a href="javascript:void(0);" class="add_lwa" title="Add field"><img src="/images/addbutton.png" width="25px"
+              height="auto" /></a>
+          <a href="javascript:void(0);" class="remove_lwa" title="Remove field"><img src="/images/removebutton.png"
+              width="25px" height="auto" /></a>
 
-        function Add(){
+          <div class="form-group row">
+            <a onclick="Add()" class="btn btn-success" id="">OK</a>
+          </div>
+
+          <button onclick="" type="submit" class="btn btn-primary">SAVE</button>
+
+          <div class="form-group row" style="">
+            <label for="colFormLabel" class="col-sm-5 col-form-label">datedays</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="datedays" placeholder="" name="datedays">
+            </div>
+
+
+          </div>
+
+
+          <div class="form-group row" style="">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">LWA</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="fieldnames" placeholder="" name="fieldnames">
+            </div>
+          </div>
+
+          <div class="form-group row" style="">
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="obdatevalues" name="obdatevalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="eventvalues" name="eventvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="daysvalues" name="daysvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="fromvalues" name="fromvalues">
+            </div>
+
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="tovalues" name="tovalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="cbdatevalues" name="cbdatevalues">
+            </div>
+
+          </div>
+          <div class="form-group row" style="">
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="cbvalues" name="cbvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="obvalues" name="obvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="totalvalues" name="totalvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="dutyvalues" name="dutyvalues">
+            </div>
+
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="creditvalues" name="creditvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="ldaysvalues" name="ldaysvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="cbdvalues" name="cbdvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="creditfromvalues" name="creditfromvalues">
+            </div>
+            <div class="col-xs-3 ">
+              <input type="text" class="form-control" size="2" id="credittovalues" name="credittovalues">
+            </div>
+
+
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<script>
+
+  $(document).ready(function () {
+    var maxField = 100;
+    var addLWA = $('.add_lwa');
+    var removeLWA = $('.remove_lwa');
+    var wrapper = $('.card1');
+
+    var x = 1;
+
+    $(addLWA).click(function () {
+      if (x < maxField) {
+        x++;
+        var i = x - 1
+        var fieldHTML = '<div class="card" style=""><div class="card-body" id="readcard' + i + '"><div class="form-group row"><label for="colFormLabel" class="mr-2 col-xs-2 col-form-label">OB Date</label><div class="col-xs-4"><input type="date" class="form-control" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2 col-form-label">OB</label><div class="col-xs-2"><input type="text" class="form-control" size="3" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="form-control" size="1" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2 col-form-label">/11</label></div><div class="row"><label for="" class="mr-2 col-xs-3 col-form-label">Event</label><div class="col-xs-6"><select class="form-control" id="event" name="event[]" onchange="Select()"><option>CML/HPL/LWA etc.</option><option>Earned Leave</option><option>EL Surrender</option></select></div><label for="" class="ml-2 mr-2 col-xs-3 col-form-label" id="showdayslabel' + i + '" style="display: none;">days</label><div class="col-xs-2" id="showdays' + i + '" style="display: none;"><input type="text" class="form-control" size="1" id="days" placeholder="" name="days[]"></div></div><div class="form-group row"><label for="" class="mr-2 col-xs-2 col-form-label">From</label><div class="col-xs-4"><input type="date" class="form-control" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2 col-form-label" id="showtolabel' + i + '">To</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="form-control" id="to" name="to[]"></div></div><div class="form-group row" id="show' + i + '" style="display: none;"><label for="" class="mr-2 col-xs-2 col-form-label">CB Date</label><div class="col-xs-4"><input type="date" class="form-control" id="cbdate" name="cbdate[]"></div><label for="" class="ml-2 mr-2 col-xs-2 col-form-label">CB</label><div class="col-xs-4"><input type="text" class="form-control" size="9" id="cb" name="cb[]"></div></div><div class="form-group row" style="display: none;"><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="cbd" name="cbd[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="eventtext" name="eventtext[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="creditf" name="creditf[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="creditt" name="creditt[]"></div><div class="col-xs-3 "><input type="text" class="form-control" size="1" id="obd" name="obd[]"></div></div></div></div>'
+        $(wrapper).append(fieldHTML);
+        var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+
+        var datecb = document.form.cbdate[y - 1].value;
+        var cbdate = new Date(datecb);
+        cbdate.setDate(cbdate.getDate() + 1);
+        var dd = "0" + cbdate.getDate();
+        var mm = "0" + (cbdate.getMonth() + 1);
+        mm = mm.slice(-2);
+        dd = dd.slice(-2);
+        var yy = cbdate.getFullYear();
+        var formatteddate = yy + '-' + mm + '-' + dd;
+        document.form.obdate[y].value = formatteddate;
+
+        document.form.obfull[y].value = document.form.cbfull[y - 1].value;
+        document.form.fraction[y].value = document.form.cbf[y - 1].value;
+
+      }
+    });
+    $(removeLWA).click(function () {
+      if (x > 1) {
+        $(wrapper).children().last().remove();
+        x--
+      }
+    });
+
+
+
+
+  });
+
+
   
-            var datef = document.form.obdate.value;
-            var datet = document.form.to.value;
-            var fdate = new Date(datef);
-            var tdate = new Date(datet);
-        
-
-            var datefrom = document.form.from.value;
-            var dateto = document.form.to.value;
-            var fromdate = new Date(datefrom);
-            var todate = new Date(dateto);
-
-
-            var time_diffperiod = tdate.getTime() - fdate.getTime();
-            var perioddays = (time_diffperiod / (1000 * 60 * 60 * 24)+1);
-            if(document.form.event.value == "EL Surrender"){
-                var time_diffperiod = fromdate.getTime() - fdate.getTime();
-                var perioddays = (time_diffperiod / (1000 * 60 * 60 * 24));
-                }
-
-            
-
-            var time_diffleave = todate.getTime() - fromdate.getTime();
-            var leavedays = time_diffleave / (1000 * 60 * 60 * 24)+1;
-            if(document.form.event.value == "EL Surrender"){
-                leavedays = document.form.days.value;
-                }
-
-            
-
-            if(document.form.event.value == "Other Leaves"){
-                var ol = leavedays;
-                var el = 0;
-                var sur = 0;
-                }
-            if(document.form.event.value == "Earned Leave"){
-                var ol = 0;
-                var el = leavedays;
-                var sur = 0;
-                }
-            if(document.form.event.value == "EL Surrender"){
-                var ol = 0;
-                var el = 0;
-                var sur = leavedays;
-                }
-                   
-            var leave = ol+el;            
-            var debit = el+sur;         
-            var duty = perioddays-leave;
-            document.form.duty.value = duty;
-
-            
-
-            if(document.form.event.value == "EL Surrender"){
-                var daysl = document.form.days.value;
-                var ldays = daysl;
-            }else{
-                var ldays = leave;
-            }
-            document.form.ldays.value = ldays;
-            
-
-            
-            var listcreditfull = (duty-duty%11)/11;
-            var dutyf = duty%11;
-            var credit = listcreditfull+"  "+dutyf+"/11";
-            document.form.credit.value = credit;
-            
-            
-
-            var obfull = document.form.obfull.value;
-            if(!obfull){obfull = 0;}
-            var fraction = document.form.fraction.value;
-            if(!fraction){fraction = 0;}
-
-            var obdays = eval(obfull*11+"+"+fraction);
-            var ob = obfull+"  "+fraction+"/11";
-            document.form.ob.value = ob;
-
-
-            var dutyandob = duty + obdays
-            if(dutyandob >= 300 * 11){
-                dutyandob = 300 * 11
-            }
-            
-
-            var cbdays = dutyandob-debit*11;
-            var cbfull = (cbdays-cbdays%11)/11;
-            var cbf = cbdays%11;
-            if(cbfull >= 300){
-                cbfull = 300
-                cbf = 0
-            }
-            var cb = cbfull+"  "+cbf+"/11";
-            document.form.cb.value = cb;
-
-            var totaldays = duty+obdays;
-            var totalfull = (totaldays-totaldays%11)/11;
-            var totalf = totaldays%11;
-            var total = totalfull+"  "+totalf+"/11";
-            document.form.total.value = total;
-
 
 
+  function Collect() {
+    var obdatevalues = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get();
+    var daysvalues = $("input[name='days[]']").map(function () { return $(this).val(); }).get();
+    var fromvalues = $("input[name='from[]']").map(function () { return $(this).val(); }).get();
+    var tovalues = $("input[name='to[]']").map(function () { return $(this).val(); }).get();
+    var cbdatevalues = $("input[name='cbdate[]']").map(function () { return $(this).val(); }).get();
+    var cbvalues = $("input[name='cb[]']").map(function () { return $(this).val(); }).get();
+    var obvalues = $("input[name='ob[]']").map(function () { return $(this).val(); }).get();
+    var totalvalues = $("input[name='total[]']").map(function () { return $(this).val(); }).get();
+    var dutyvalues = $("input[name='duty[]']").map(function () { return $(this).val(); }).get();
+    var creditvalues = $("input[name='credit[]']").map(function () { return $(this).val(); }).get();
+    var ldaysvalues = $("input[name='ldays[]']").map(function () { return $(this).val(); }).get();
+    var cbdvalues = $("input[name='cbd[]']").map(function () { return $(this).val(); }).get();
+    var eventtextvalues = $("input[name='eventtext[]']").map(function () { return $(this).val(); }).get();
+    var creditfvalues = $("input[name='creditf[]']").map(function () { return $(this).val(); }).get();
+    var credittvalues = $("input[name='creditt[]']").map(function () { return $(this).val(); }).get();
+    var obdvalues = $("input[name='obd[]']").map(function () { return $(this).val(); }).get();
+    document.form.obdatevalues.value = obdvalues
+    document.form.eventvalues.value = eventtextvalues
+    document.form.daysvalues.value = daysvalues
+    document.form.fromvalues.value = fromvalues
+    document.form.tovalues.value = tovalues
+    document.form.cbdatevalues.value = cbdvalues
+    document.form.cbvalues.value = cbvalues
+    document.form.obvalues.value = obvalues
+    document.form.totalvalues.value = totalvalues
+    document.form.dutyvalues.value = dutyvalues
+    document.form.creditvalues.value = creditvalues
+    document.form.ldaysvalues.value = ldaysvalues
+    document.form.fieldnames.value = obdvalues
+    document.form.creditfromvalues.value = creditfvalues
+    document.form.credittovalues.value = credittvalues
+  }
 
 
 
 
-            if(document.form.event.value == "EL Surrender"){
-            var datesur = document.form.from.value;
-            var surdate = new Date(datesur);               
-            
-            surdate.setDate(surdate.getDate() - 1);
-            var dd = "0"+surdate.getDate();
-            var mm = "0"+(surdate.getMonth() + 1);
-            mm = mm.slice(-2);
-            dd = dd.slice(-2);
-            var yy = surdate.getFullYear();
-
-            var formatdate = yy + '-'+ mm + '-'+ dd;
-            document.form.cbdate.value = formatdate;  
-            }else{
-                document.form.cbdate.value = dateto;
-            }
-
-            var datecb = document.form.cbdate.value;
-            var cbdate = new Date(datecb);               
-            cbdate.setDate(cbdate.getDate());
-            var ddcb = "0"+cbdate.getDate();
-            var mmcb = "0"+(cbdate.getMonth() + 1);
-            mmcb = mmcb.slice(-2);
-            ddcb = ddcb.slice(-2);
-            var yycb = cbdate.getFullYear();
-            var cbd = ddcb + '-'+ mmcb + '-'+ yycb;
-            document.form.cbd.value = cbd;
-            
-
-
-
-            document.form.cbfull.value = cbfull;
-            document.form.cbf.value = cbf;
-
-            document.getElementById('obdate').readOnly = true;
-            document.getElementById('obfull').readOnly = true;
-            document.getElementById('fraction').readOnly = true;
-
-            document.form.days.value = leavedays;
-            document.getElementById("next").disabled = false;
-
-            }
-
-
-
-        function Next(){ 
-            
-            document.form.oblist.value = document.form.ob.value;
-            
-            document.form.creditdayslist.value = document.form.duty.value;
-           
-            document.form.creditlist.value = document.form.credit.value;
-            
-            document.form.leavedayslist.value = document.form.ldays.value;
-            
-            document.form.cbdatelist.value = document.form.cbd.value;
-
-            var listcbfull = document.form.cbfull.value;
-            cbfulllist.push(listcbfull);
-            document.form.cbfulllist.value = cbfulllist;
-
-            var listcbf = document.form.cbf.value;
-            cbflist.push(listcbf);
-            document.form.cbflist.value = cbflist;
-            
-
-
-            var creditf = document.form.obdate.value;
-            var fcredit = new Date(creditf)
-            fcredit.setDate(fcredit.getDate());
-            var ddfc = "0"+fcredit.getDate();
-            var mmfc = "0"+(fcredit.getMonth() + 1);
-            mmfc = mmfc.slice(-2);
-            ddfc = ddfc.slice(-2);
-            var yyfc = fcredit.getFullYear();
-            var listcreditfrom = ddfc + '-'+ mmfc + '-'+ yyfc;
-            
-
-
-            var datecb = document.form.cbdate.value;
-            var cbdate = new Date(datecb);               
-            cbdate.setDate(cbdate.getDate() + 1);
-            var dd = "0"+cbdate.getDate();
-            var mm = "0"+(cbdate.getMonth() + 1);
-            mm = mm.slice(-2);
-            dd = dd.slice(-2);
-            var yy = cbdate.getFullYear();
-            var formatteddate = yy + '-'+ mm + '-'+ dd;
-            document.form.obdate.value = formatteddate;
-
-            
-            
-            document.form.obfull.value = document.form.cbfull.value;
-            document.form.fraction.value = document.form.cbf.value;
-                    
-                             
-            var creditt = document.form.from.value;
-            var tcredit = new Date(creditt);
-            tcredit.setDate(tcredit.getDate() - 1);
-            var ddtc = "0"+tcredit.getDate();
-            var mmtc = "0"+(tcredit.getMonth() + 1);
-            mmtc = mmtc.slice(-2);
-            ddtc = ddtc.slice(-2);
-            var yytc = tcredit.getFullYear();
-            var formatteddatetc = ddtc + '-'+ mmtc + '-'+ yytc;
-            var listcreditto = formatteddatetc;
-
-
-            var listevent = document.form.event.value;
-
-            var leavef = document.form.from.value;
-            var fleave = new Date(leavef);
-            fleave.setDate(fleave.getDate());
-            var ddfl = "0"+fleave.getDate();
-            var mmfl = "0"+(fleave.getMonth() + 1);
-            mmfl = mmfl.slice(-2);
-            ddfl = ddfl.slice(-2);
-            var yyfl = fleave.getFullYear();
-            var formatteddatefl = ddfl + '-'+ mmfl + '-'+ yyfl;
-            var listleavefrom = formatteddatefl;
-
-            if(document.form.event.value == "EL Surrender"){
-                var leaveto = document.form.days.value;
-                var listleaveto = "-";
-            }else{
-                var leavet = document.form.to.value;
-                var tleave = new Date(leavet);
-                fleave.setDate(tleave.getDate());
-                var ddtl = "0"+tleave.getDate();
-                var mmtl = "0"+(tleave.getMonth() + 1);
-                mmtl = mmtl.slice(-2);
-                ddtl = ddtl.slice(-2);
-                var yytl = tleave.getFullYear();
-                var formatteddatetl = ddtl + '-'+ mmtl + '-'+ yytl;
-                var listleaveto = formatteddatetl;
-            }
-            
-
-
-            var listcb = document.form.cb.value;
-            var listtotal = document.form.total.value;
-
-            creditfromlist.push(listcreditfrom);
-            credittolist.push(listcreditto);  
-            eventlist.push(listevent);
-            leavefromlist.push(listleavefrom);
-            leavetolist.push(listleaveto);
-            cblist.push(listcb);
-            totallist.push(listtotal);
-            document.form.creditfromlist.value = creditfromlist;
-            document.form.credittolist.value = credittolist;
-            document.form.eventlist.value = eventlist;
-            document.form.leavefromlist.value = leavefromlist;
-            document.form.leavetolist.value = leavetolist;
-            document.form.cblist.value = cblist;
-            document.form.totallist.value = totallist;
-
-            
-            
-            document.form.days.value = null;
-            document.form.from.value = null;
-            document.form.to.value = null;
-
-
-            document.getElementById("next").disabled = true;
-
-            
-
-        }
-
-        function Back(){
-
-            document.getElementById("next").disabled = true;
-
-            if(cbfulllist.length > 1){
-
-            
-                      
-            document.form.obfull.value = cbfulllist[cbfulllist.length-2];
-            document.form.fraction.value = cbflist[cbflist.length-2];
-            document.form.cb.value = cblist[cblist.length-2];
-           
-            var cflist = Array();
-            cflist = creditfromlist[creditfromlist.length-1].split('-');
-            document.form.obdate.value = cflist[2] + '-'+ cflist[1] + '-'+ cflist[0];
-            var cbdlist = Array();
-            cbdlist = cbdatelist[cbdatelist.length-2].split('-');
-            document.form.cbdate.value = cbdlist[2] + '-'+ cbdlist[1] + '-'+ cbdlist[0];
-            
-
-            
-
-            oblist.pop();
-            creditfromlist.pop();
-            credittolist.pop();
-            creditdayslist.pop();
-            creditlist.pop();
-            totallist.pop();
-            eventlist.pop();
-            leavefromlist.pop();
-            leavetolist.pop();
-            leavedayslist.pop();
-            cblist.pop();
-            cbdatelist.pop();
-            cbfulllist.pop();
-            cbflist.pop();
-            document.form.oblist.value = oblist;
-            document.form.creditfromlist.value = creditfromlist;
-            document.form.credittolist.value = credittolist;
-            document.form.creditdayslist.value = creditdayslist;
-            document.form.creditlist.value = creditlist;
-            document.form.totallist.value = totallist;
-            document.form.eventlist.value = eventlist;
-            document.form.leavefromlist.value = leavefromlist;
-            document.form.leavetolist.value = leavetolist;
-            document.form.leavedayslist.value = leavedayslist;
-            document.form.cblist.value = cblist;
-            document.form.cbdatelist.value = cbdatelist;
-            document.form.cbfulllist.value = cbfulllist;
-            document.form.cbflist.value = cbflist;
-
-            }
-
-            
-
-            
-            
-            
-        }
-
-        function Select(){  
-            if(document.form.event.value == "EL Surrender"){
-                document.getElementById('to').readOnly = true;
-                document.getElementById('days').readOnly = false;
-            }else{
-                document.getElementById('to').readOnly = false;
-                document.getElementById('days').readOnly = true;    
-            }              
-                
-            }
-
-    </script>
-   
+
+
+
+
+
+
+
+
+  function Add1() {
+
+    document.getElementById("show").style = 'block'
+
+
+    var datef = document.form.obdate.value;
+    var datet = document.form.to.value;
+    var fdate = new Date(datef);
+    var tdate = new Date(datet);
 
     
+
+    var datefrom = document.form.from.value;
+    var dateto = document.form.to.value;
+    var fromdate = new Date(datefrom);
+    var todate = new Date(dateto);
+
+
+   
+
+    var time_diffperiod = tdate.getTime() - fdate.getTime();
+    var perioddays = (time_diffperiod / (1000 * 60 * 60 * 24) + 1);
+    if (document.form.event.value == "EL Surrender") {
+      var time_diffperiod = fromdate.getTime() - fdate.getTime();
+      var perioddays = (time_diffperiod / (1000 * 60 * 60 * 24));
+    }
+
+    var time_diffleave = todate.getTime() - fromdate.getTime();
+    var leavedays = time_diffleave / (1000 * 60 * 60 * 24) + 1;
+    if (document.form.event.value == "EL Surrender") {
+      leavedays = document.form.days.value;
+    }
+
+    if (document.form.event.value == "CML/HPL/LWA etc.") {
+      var ol = leavedays;
+      var el = 0;
+      var sur = 0;
+    }
+    if (document.form.event.value == "Earned Leave") {
+      var ol = 0;
+      var el = leavedays;
+      var sur = 0;
+    }
+    if (document.form.event.value == "EL Surrender") {
+      var ol = 0;
+      var el = 0;
+      var sur = leavedays;
+    }
+
+    var leave = ol + el;
+    var debit = el + sur;
+    var duty = perioddays - leave;
+    document.form.duty.value = duty;
+
+    if (document.form.event.value == "EL Surrender") {
+      var daysl = document.form.days.value;
+      var ldays = daysl;
+    } else {
+      var ldays = leave;
+    }
+    document.form.ldays.value = ldays;
+
+    var listcreditfull = (duty - duty % 11) / 11;
+    var dutyf = duty % 11;
+    var credit = listcreditfull + "  " + dutyf + "/11";
+    document.form.credit.value = credit;
+
+    var obfull = document.form.obfull.value;
+    if (!obfull) { obfull = 0; }
+    var fraction = document.form.fraction.value;
+    if (!fraction) { fraction = 0; }
+
+    var obdays = eval(obfull * 11 + "+" + fraction);
+    var ob = obfull + "  " + fraction + "/11";
+    document.form.ob.value = ob;
+
+    var dutyandob = duty + obdays
+    if (dutyandob >= 300 * 11) {
+      dutyandob = 300 * 11
+    }
+
+    var cbdays = dutyandob - debit * 11;
+    var cbfull = (cbdays - cbdays % 11) / 11;
+    var cbf = cbdays % 11;
+    if (cbfull >= 300) {
+      cbfull = 300
+      cbf = 0
+    }
+    var cb = cbfull + "  " + cbf + "/11";
+    document.form.cb.value = cb;
+
+
+    var totaldays = duty + obdays;
+    var totalfull = (totaldays - totaldays % 11) / 11;
+    var totalf = totaldays % 11;
+    var total = totalfull + "  " + totalf + "/11";
+    document.form.total.value = total;
+
+    if (document.form.event.value == "EL Surrender") {
+      var datesur = document.form.from.value;
+      var surdate = new Date(datesur);
+
+      surdate.setDate(surdate.getDate() - 1);
+      var dd = "0" + surdate.getDate();
+      var mm = "0" + (surdate.getMonth() + 1);
+      mm = mm.slice(-2);
+      dd = dd.slice(-2);
+      var yy = surdate.getFullYear();
+
+      var formatdate = yy + '-' + mm + '-' + dd;
+      document.form.cbdate.value = formatdate;
+    } else {
+      document.form.cbdate.value = dateto;
+    }
+
+    var datecb = document.form.cbdate.value;
+    var cbdate = new Date(datecb);
+    cbdate.setDate(cbdate.getDate());
+    var ddcb = "0" + cbdate.getDate();
+    var mmcb = "0" + (cbdate.getMonth() + 1);
+    mmcb = mmcb.slice(-2);
+    ddcb = ddcb.slice(-2);
+    var yycb = cbdate.getFullYear();
+    var cbd = ddcb + '-' + mmcb + '-' + yycb;
+    document.form.cbd.value = cbd;
+
+    document.form.cbfull.value = cbfull;
+    document.form.cbf.value = cbf;
+
+    var dateob = document.form.obdate.value;
+    var obdate = new Date(dateob);
+    obdate.setDate(obdate.getDate());
+    var ddob = "0" + obdate.getDate();
+    var mmob = "0" + (obdate.getMonth() + 1);
+    mmob = mmob.slice(-2);
+    ddob = ddob.slice(-2);
+    var yyob = obdate.getFullYear();
+    var obd = ddob + '-' + mmob + '-' + yyob;
+    document.form.obd.value = obd;
+
+    var creditf = document.form.obdate.value;
+    var fcredit = new Date(creditf)
+    fcredit.setDate(fcredit.getDate());
+    var ddfc = "0" + fcredit.getDate();
+    var mmfc = "0" + (fcredit.getMonth() + 1);
+    mmfc = mmfc.slice(-2);
+    ddfc = ddfc.slice(-2);
+    var yyfc = fcredit.getFullYear();
+    var listcreditfrom = ddfc + '-' + mmfc + '-' + yyfc;
+
+
+    var creditt = document.form.from.value;
+    var tcredit = new Date(creditt);
+    tcredit.setDate(tcredit.getDate() - 1);
+    var ddtc = "0" + tcredit.getDate();
+    var mmtc = "0" + (tcredit.getMonth() + 1);
+    mmtc = mmtc.slice(-2);
+    ddtc = ddtc.slice(-2);
+    var yytc = tcredit.getFullYear();
+    var formatteddatetc = ddtc + '-' + mmtc + '-' + yytc;
+    var listcreditto = formatteddatetc;
+
+    document.form.creditf.value = listcreditfrom
+    document.form.creditt.value = listcreditto
+
+
+
+    
+
+    document.form.days.value = leavedays;
+
+    
+
+    document.form.eventtext.value = document.form.event.value
+
+    
+
+   
+
+  }
+
+
+  function Add2() {
+
+    var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+
+    document.getElementById("show" + y).style = 'block'
+
+    var datef = document.form.obdate[y].value;
+    var datet = document.form.to[y].value;
+    var fdate = new Date(datef);
+    var tdate = new Date(datet);
+
+    var datefrom = document.form.from[y].value;
+    var dateto = document.form.to[y].value;
+    var fromdate = new Date(datefrom);
+    var todate = new Date(dateto);
+
+    var time_diffperiod = tdate.getTime() - fdate.getTime();
+    var perioddays = (time_diffperiod / (1000 * 60 * 60 * 24) + 1);
+    if (document.form.event[y].value == "EL Surrender") {
+      var time_diffperiod = fromdate.getTime() - fdate.getTime();
+      var perioddays = (time_diffperiod / (1000 * 60 * 60 * 24));
+    }
+
+    var time_diffleave = todate.getTime() - fromdate.getTime();
+    var leavedays = time_diffleave / (1000 * 60 * 60 * 24) + 1;
+    if (document.form.event[y].value == "EL Surrender") {
+      leavedays = document.form.days[y].value;
+    }
+
+    if (document.form.event[y].value == "CML/HPL/LWA etc.") {
+      var ol = leavedays;
+      var el = 0;
+      var sur = 0;
+    }
+    if (document.form.event[y].value == "Earned Leave") {
+      var ol = 0;
+      var el = leavedays;
+      var sur = 0;
+    }
+    if (document.form.event[y].value == "EL Surrender") {
+      var ol = 0;
+      var el = 0;
+      var sur = leavedays;
+    }
+
+    var leave = ol + el;
+    var debit = el + sur;
+    var duty = perioddays - leave;
+    document.form.duty[y].value = duty;
+
+    if (document.form.event[y].value == "EL Surrender") {
+      var daysl = document.form.days[y].value;
+      var ldays = daysl;
+    } else {
+      var ldays = leave;
+    }
+    document.form.ldays[y].value = ldays;
+
+    var listcreditfull = (duty - duty % 11) / 11;
+    var dutyf = duty % 11;
+    var credit = listcreditfull + "  " + dutyf + "/11";
+    document.form.credit[y].value = credit;
+
+    var obfull = document.form.obfull[y].value;
+    if (!obfull) { obfull = 0; }
+    var fraction = document.form.fraction[y].value;
+    if (!fraction) { fraction = 0; }
+
+    var obdays = eval(obfull * 11 + "+" + fraction);
+    var ob = obfull + "  " + fraction + "/11";
+    document.form.ob[y].value = ob;
+
+    var dutyandob = duty + obdays
+    if (dutyandob >= 300 * 11) {
+      dutyandob = 300 * 11
+    }
+
+    var cbdays = dutyandob - debit * 11;
+    var cbfull = (cbdays - cbdays % 11) / 11;
+    var cbf = cbdays % 11;
+    if (cbfull >= 300) {
+      cbfull = 300
+      cbf = 0
+    }
+    var cb = cbfull + "  " + cbf + "/11";
+    document.form.cb[y].value = cb;
+
+    var totaldays = duty + obdays;
+    var totalfull = (totaldays - totaldays % 11) / 11;
+    var totalf = totaldays % 11;
+    var total = totalfull + "  " + totalf + "/11";
+    document.form.total[y].value = total;
+
+    if (document.form.event[y].value == "EL Surrender") {
+      var datesur = document.form.from[y].value;
+      var surdate = new Date(datesur);
+
+      surdate.setDate(surdate.getDate() - 1);
+      var dd = "0" + surdate.getDate();
+      var mm = "0" + (surdate.getMonth() + 1);
+      mm = mm.slice(-2);
+      dd = dd.slice(-2);
+      var yy = surdate.getFullYear();
+
+      var formatdate = yy + '-' + mm + '-' + dd;
+      document.form.cbdate[y].value = formatdate;
+    } else {
+      document.form.cbdate[y].value = dateto;
+    }
+
+    var datecb = document.form.cbdate[y].value;
+    var cbdate = new Date(datecb);
+    cbdate.setDate(cbdate.getDate());
+    var ddcb = "0" + cbdate.getDate();
+    var mmcb = "0" + (cbdate.getMonth() + 1);
+    mmcb = mmcb.slice(-2);
+    ddcb = ddcb.slice(-2);
+    var yycb = cbdate.getFullYear();
+    var cbd = ddcb + '-' + mmcb + '-' + yycb;
+    document.form.cbd[y].value = cbd;
+
+    document.form.cbfull[y].value = cbfull;
+    document.form.cbf[y].value = cbf;
+
+    var dateob = document.form.obdate[y].value;
+    var obdate = new Date(dateob);
+    obdate.setDate(obdate.getDate());
+    var ddob = "0" + obdate.getDate();
+    var mmob = "0" + (obdate.getMonth() + 1);
+    mmob = mmob.slice(-2);
+    ddob = ddob.slice(-2);
+    var yyob = obdate.getFullYear();
+    var obd = ddob + '-' + mmob + '-' + yyob;
+    document.form.obd[y].value = obd;
+
+    var creditf = document.form.obdate[y].value;
+    var fcredit = new Date(creditf)
+    fcredit.setDate(fcredit.getDate());
+    var ddfc = "0" + fcredit.getDate();
+    var mmfc = "0" + (fcredit.getMonth() + 1);
+    mmfc = mmfc.slice(-2);
+    ddfc = ddfc.slice(-2);
+    var yyfc = fcredit.getFullYear();
+    var listcreditfrom = ddfc + '-' + mmfc + '-' + yyfc;
+
+
+    var creditt = document.form.from[y].value;
+    var tcredit = new Date(creditt);
+    tcredit.setDate(tcredit.getDate() - 1);
+    var ddtc = "0" + tcredit.getDate();
+    var mmtc = "0" + (tcredit.getMonth() + 1);
+    mmtc = mmtc.slice(-2);
+    ddtc = ddtc.slice(-2);
+    var yytc = tcredit.getFullYear();
+    var formatteddatetc = ddtc + '-' + mmtc + '-' + yytc;
+    var listcreditto = formatteddatetc;
+
+    document.form.creditf[y].value = listcreditfrom
+    document.form.creditt[y].value = listcreditto
+
+
+
+    
+
+    document.form.days[y].value = leavedays;
+
+    document.form.eventtext[y].value = document.form.event[y].value
+
+    
+
+
+  }
+
+
+  function Add() {
+    if (obdate[0]) {
+      Add2()
+    } else {
+      Add1()
+    }
+    Collect()
+  }
+
+
+
+  function Select1() {
+    
+    if (document.form.event.value == "EL Surrender") {
+      document.getElementById('showto').style.display = 'none';
+      document.getElementById('showtolabel').style.display = 'none';
+      document.getElementById('showdays').style.display = 'block';
+      document.getElementById('showdayslabel').style.display = 'block';
+    } else {
+      document.getElementById('showto').style.display = 'block';
+      document.getElementById('showtolabel').style.display = 'block';
+      document.getElementById('showdays').style.display = 'none';
+      document.getElementById('showdayslabel').style.display = 'none';
+    }
+
+  }
+
+  function Select2() {
+
+    var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+    
+    if (document.form.event[y].value == "EL Surrender") {
+      document.getElementById('showto'+y).style.display = 'none';
+      document.getElementById('showtolabel'+y).style.display = 'none';
+      document.getElementById('showdays'+y).style.display = 'block';
+      document.getElementById('showdayslabel'+y).style.display = 'block';
+    } else {
+      document.getElementById('showto'+y).style.display = 'block';
+      document.getElementById('showtolabel'+y).style.display = 'block';
+      document.getElementById('showdays'+y).style.display = 'none';
+      document.getElementById('showdayslabel'+y).style.display = 'none';
+    }
+
+  }
+
+  function Select() {
+    if (obdate[0]) {
+      Select2()
+    } else {
+      Select1()
+    }
+  }
+
+</script>
+
+<div class=""><label for="" class="mr-2 col-xs-2">From</label><div class="col-xs-4"><input type="date" class="" id="from" name="from[]"></div><label for="" class="mr-2 col-xs-2" id="showtolabel' + i + '">To</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="" id="to" name="to[]"></div></div>
