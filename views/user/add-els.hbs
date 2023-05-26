@@ -26,7 +26,7 @@
           <div class="card1">
 
             <div class="card" style="">
-              <div class="card-body bg-warning" id="readcard">
+              <div class="card-body bg-primary text-white" id="readcard">
                 <div class="row">
                   <label for="colFormLabel" class="mr-2 col-xs-2 ">OB Date</label>
                   <div class="col-xs-3">
@@ -228,12 +228,12 @@
       if (x < maxField) {
         x++;
         var i = x - 1
-        var c = "bg-info"
-        if (i % 5 === 1) { c = "bg-primary" }
-        else if (i % 5 === 2) { c = "bg-secondary" }
-        else if (i % 5 === 3) { c = "bg-success" }
-        else if (i % 5 === 4) { c = "bg-danger" }
-        else { c = "bg-warning" }
+        var c = "bg-primary text-white"
+        if (i % 5 === 1) { c = "bg-secondary text-white" }
+        else if (i % 5 === 2) { c = "bg-success text-white" }
+        else if (i % 5 === 3) { c = "bg-danger text-white" }
+        else if (i % 5 === 4) { c = "bg-info text-white" }
+        else { c = "bg-primary text-white" }
 
         var fieldHTML = '<div class="card ' + c + '" style=""><div class="card-body" id="readcard' + i + '"><div class="row"><label for="colFormLabel" class="mr-2 col-xs-2">OB Date</label><div class="col-xs-4"><input type="date" class="" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2">OB</label><div class="col-xs-2"><input type="text" class="" size="3" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="" size="1" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2">/11</label></div><div class="row mt-2"><label for="" class="mr-2 col-xs-3">Event</label><div class="col-xs-6"><select class="" id="event" name="event[]" onchange="Select()"><option>CML/HPL/LWA etc.</option><option>Earned Leave</option><option>EL Surrender</option></select></div><label for="" class="ml-2 mr-2 col-xs-3" id="showdayslabel' + i + '" style="display: none;">days</label><div class="col-xs-2" id="showdays' + i + '" style="display: none;"><input type="text" class="" size="1" id="days" placeholder="" name="days[]"></div></div><div class="row"><label for="" class="mr-2 col-xs-2">From</label><div class="col-xs-4"><input type="date" class="" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2" id="showtolabel' + i + '">To</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="" id="to" name="to[]"></div></div><div class="row" id="show' + i + '" style="display: none;"><label for="" class="mr-2 col-xs-2">CB Date</label><div class="col-xs-4"><input type="date" class="" id="cbdate" name="cbdate[]"></div><label for="" class="ml-2 mr-2 col-xs-2">CB</label><div class="col-xs-4"><input type="text" class="" size="9" id="cb" name="cb[]"></div></div><div class="row" style="display: none;"><div class="col-xs-3 "><input type="text" class="" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbd" name="cbd[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="eventtext" name="eventtext[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditf" name="creditf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditt" name="creditt[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="obd" name="obd[]"></div></div></div></div>'
         $(wrapper).append(fieldHTML);
