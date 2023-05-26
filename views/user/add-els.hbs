@@ -136,7 +136,7 @@
                 width="25px" height="auto" /></a>
 
 
-            <button onclick="" type="submit" class="btn btn-primary">PRINT</button>
+            <button onclick="" id="print" type="submit" class="btn btn-primary">PRINT</button>
 
 
           </div>
@@ -224,7 +224,7 @@
 
     var x = 1;
 
-    $(addLWA).click(function (e) {
+    $(addLWA).click(function () {
       if (x < maxField) {
         x++;
         var i = x - 1
@@ -253,7 +253,8 @@
         document.form.obfull[y].value = document.form.cbfull[y - 1].value;
         document.form.fraction[y].value = document.form.cbf[y - 1].value;
 
-        e.preventDefault()
+        document.getElementById("plus").style.display = 'none'
+        document.getElementById("print").style.display = 'none'
 
       }
     });
@@ -320,6 +321,8 @@
 
   function Add1() {
 
+    document.getElementById("plus").style.display = 'block'
+    document.getElementById("print").style.display = 'block'
     document.getElementById("show").style = 'block'
 
 
@@ -495,15 +498,14 @@
 
 
 
-
-
   }
 
 
   function Add2() {
 
     var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
-
+    document.getElementById("plus").style.display = 'block'
+    document.getElementById("print").style.display = 'block'
     document.getElementById("show" + y).style = 'block'
 
     var datef = document.form.obdate[y].value;
