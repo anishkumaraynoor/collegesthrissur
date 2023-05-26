@@ -16,10 +16,11 @@
 
 <section>
 
-  
-    
+  <div class="container mt-3 col-xs-12">
+    <div class="row">
+      <div class="col-xs-6 mt-5 mb-5">
         <div>
-          <h2 class="text-center">EL Calculation</h2>
+          <h2 class="text-center col-xs-6">EL Calculation</h2>
         </div>
 
         <form action="/view-els" method="POST" name="form">
@@ -29,12 +30,12 @@
               <div class="card-body bg-warning" id="readcard">
                 <div class="row">
                   <label for="colFormLabel" class="mr-2 col-xs-2 ">OB Date</label>
-                  <div class="col-xs-4">
-                    <input type="date" class="" id="obdate" placeholder="" name="obdate[]">
+                  <div class="col-xs-3">
+                    <input type="date" class="" style="width: 120px;" id="obdate" placeholder="" name="obdate[]">
                   </div>
                   <label for="colFormLabel" class="mr-2 ml-2 col-xs-2">OB</label>
                   <div class="col-xs-2">
-                    <input type="text" class="" size="3" id="obfull" placeholder="" name="obfull[]">
+                    <input type="text" class="" size="2" id="obfull" placeholder="" name="obfull[]">
                   </div>
                   <div class="col-xs-2">
                     <input type="text" class="" size="1" id="fraction" placeholder="" name="fraction[]">
@@ -63,12 +64,12 @@
                 <div class="row">
                   <label for="" class="mr-2 col-xs-2">From</label>
                   <div class="col-xs-4">
-                    <input type="date" class="" id="from" name="from[]">
+                    <input type="date" class="" style="width: 120px;" id="from" name="from[]">
                   </div>
 
                   <label for="" class="ml-2 mr-2 col-xs-2" id="showtolabel">To</label>
                   <div class="col-xs-4" id="showto">
-                    <input type="date" class="" id="to" name="to[]">
+                    <input type="date" class="" style="width: 120px;" id="to" name="to[]">
                   </div>
 
                 </div>
@@ -76,7 +77,7 @@
                 <div class="row" id="show" style="display: none">
                   <label for="" class="mr-2 col-xs-2">CB Date</label>
                   <div class="col-xs-4">
-                    <input type="date" class="" id="cbdate" name="cbdate[]">
+                    <input type="date" class="" style="width: 120px;" id="cbdate" name="cbdate[]">
                   </div>
                   <label for="" class="ml-2 mr-2 col-xs-2">CB</label>
                   <div class="col-xs-4">
@@ -208,8 +209,10 @@
 
 
         </form>
+      </div>
+    </div>
   
-  
+  </div>
 </section>
 
 
