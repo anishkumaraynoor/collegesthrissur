@@ -44,12 +44,16 @@
 
                 <div class="row mt-2">
                   <label for="" class="mr-2 col-xs-3">Event</label>
-                  <div class="col-xs-6">
+                  <div class="col-xs-6" id="eventdiv">
                     <select class="" id="event" name="event[]" onchange="Select()">
                       <option>CML/HPL/LWA etc.</option>
                       <option>Earned Leave</option>
                       <option>EL Surrender</option>
+                      <option>Retirement/Stop Calculation</option>
                     </select>
+                  </div>
+                  <div class="col-xs-6" id="etextdiv" style="">
+                    <input type="text" class="" style="display: none;" id="etext" placeholder="" name="etext[]">
                   </div>
 
                   <label for="" class="ml-2 mr-2 col-xs-3" id="showdayslabel" style="display: none;">days</label>
@@ -76,11 +80,11 @@
                 <div class="row" id="show" style="display: none">
                   <label for="" class="mr-2 col-xs-2">CB Date</label>
                   <div class="col-xs-4">
-                    <input type="date" class="" style="width: 120px;" id="cbdate" name="cbdate[]">
+                    <input type="date" class="bg-dark text-white" style="width: 120px;" id="cbdate" name="cbdate[]" disabled>
                   </div>
                   <label for="" class="ml-2 mr-2 col-xs-2">CB</label>
                   <div class="col-xs-4">
-                    <input type="text" class="" style="width: 80px;" id="cb" name="cb[]">
+                    <input type="text" class="bg-dark text-white" style="width: 80px;" id="cb" name="cb[]" disabled>
                   </div>
                 </div>
 
@@ -131,9 +135,9 @@
           <div class="row ml-5">
             <a onclick="Add()" class="btn btn-success" id="">OK</a>
             <a href="javascript:void(0);" class="add_lwa" id="plus" title="Add field"><img src="/images/addbutton.png"
-                width="25px" height="auto" /></a>
-            <a href="javascript:void(0);" class="remove_lwa" title="Remove field"><img src="/images/removebutton.png"
-                width="25px" height="auto" /></a>
+                width="35px" height="auto" /></a>
+            <a href="javascript:void(0);" class="remove_lwa" id="minus" title="Remove field"><img src="/images/removebutton.png"
+                width="35px" height="auto" /></a>
 
 
             <button onclick="" id="print" type="submit" class="btn btn-primary">PRINT</button>
@@ -224,6 +228,10 @@
 
     var x = 1;
 
+    document.getElementById("plus").style.display = 'none'
+    document.getElementById("minus").style.display = 'none'
+    document.getElementById("print").style.display = 'none'
+
     $(addLWA).click(function () {
       if (x < maxField) {
         x++;
@@ -235,10 +243,10 @@
         else if (i % 5 === 4) { c = "bg-info text-white" }
         else { c = "bg-primary text-white" }
 
-        var fieldHTML = '<div class="card ' + c + '" style=""><div class="card-body" id="readcard' + i + '"><div class="row"><label for="colFormLabel" class="mr-2 col-xs-2">OB Date</label><div class="col-xs-3"><input type="date" class="" style="width: 120px;" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2">OB</label><div class="col-xs-2"><input type="text" class="" size="2" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="" style="width: 30px;" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2">/11</label></div><div class="row mt-2"><label for="" class="mr-2 col-xs-3">Event</label><div class="col-xs-6"><select class="" id="event" name="event[]" onchange="Select()"><option>CML/HPL/LWA etc.</option><option>Earned Leave</option><option>EL Surrender</option></select></div><label for="" class="ml-2 mr-2 col-xs-3" id="showdayslabel' + i + '" style="display: none;">days</label><div class="col-xs-2" id="showdays' + i + '" style="display: none;"><input type="text" class="" size="1" id="days" placeholder="" name="days[]"></div></div><div class="row"><label for="" class="mr-2 col-xs-2">From</label><div class="col-xs-4"><input type="date" class="" style="width: 120px;" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2" id="showtolabel' + i + '">To</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="" style="width: 120px;" id="to" name="to[]"></div></div><div class="row" id="show' + i + '" style="display: none;"><label for="" class="mr-2 col-xs-2">CB Date</label><div class="col-xs-4"><input type="date" class="" style="width: 120px;" id="cbdate" name="cbdate[]"></div><label for="" class="ml-2 mr-2 col-xs-2">CB</label><div class="col-xs-4"><input type="text" class="" style="width: 80px;" id="cb" name="cb[]"></div></div><div class="row" style="display: none;"><div class="col-xs-3 "><input type="text" class="" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbd" name="cbd[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="eventtext" name="eventtext[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditf" name="creditf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditt" name="creditt[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="obd" name="obd[]"></div></div></div></div>'
+        var fieldHTML = '<div class="card ' + c + '" style=""><div class="card-body" id="readcard' + i + '"><div class="row" style="display:none"><label for="colFormLabel" class="mr-2 col-xs-2">OB Date</label><div class="col-xs-3"><input type="date" class="" style="width: 120px;" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2">OB</label><div class="col-xs-2"><input type="text" class="" size="2" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="" style="width: 30px;" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2">/11</label></div><div class="row mt-2"><label for="" class="mr-2 col-xs-3">Event</label><div class="col-xs-6" id="eventdiv' + i + '"><select class="" id="event" name="event[]" onchange="Select()"><option>CML/HPL/LWA etc.</option><option>Earned Leave</option><option>EL Surrender</option><option>Retirement/Stop Calculation</option></select></div><div class="col-xs-6" id="etextdiv' + i + '" style=""><input type="text" class="" style="display: none;" id="etext" placeholder="" name="etext[]"></div><label for="" class="ml-2 mr-2 col-xs-3" id="showdayslabel' + i + '" style="display: none;">days</label><div class="col-xs-2" id="showdays' + i + '" style="display: none;"><input type="text" class="" size="1" id="days" placeholder="" name="days[]"></div></div><div class="row"><label for="" class="mr-2 col-xs-2">From</label><div class="col-xs-4"><input type="date" class="" style="width: 120px;" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2" id="showtolabel' + i + '">To</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="" style="width: 120px;" id="to" name="to[]"></div></div><div class="row" id="show' + i + '" style="display: none;"><label for="" class="mr-2 col-xs-2">CB Date</label><div class="col-xs-4"><input type="date" class="bg-dark text-white" style="width: 120px;" id="cbdate" name="cbdate[]" disabled></div><label for="" class="ml-2 mr-2 col-xs-2">CB</label><div class="col-xs-4"><input type="text" class="bg-dark text-white" style="width: 80px;" id="cb" name="cb[]" disabled></div></div><div class="row" style="display: none;"><div class="col-xs-3 "><input type="text" class="" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbd" name="cbd[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="eventtext" name="eventtext[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditf" name="creditf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditt" name="creditt[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="obd" name="obd[]"></div></div></div></div>'
         $(wrapper).append(fieldHTML);
         var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
-
+        var z = y-1
         var datecb = document.form.cbdate[y - 1].value;
         var cbdate = new Date(datecb);
         cbdate.setDate(cbdate.getDate() + 1);
@@ -255,6 +263,26 @@
 
         document.getElementById("plus").style.display = 'none'
         document.getElementById("print").style.display = 'none'
+        document.getElementById("obdate").disabled = true
+        document.getElementById("obfull").disabled = true
+        document.getElementById("fraction").disabled = true
+        
+        document.form.etext[y-1].value = document.form.event[y-1].value
+        
+
+        document.form.days[y-1].disabled = true
+        document.form.from[y-1].disabled = true
+        document.form.to[y-1].disabled = true
+        
+        document.form.event[y-1].style.display = 'none'
+        document.form.etext[y-1].style.display = 'block'
+        document.form.etext[y-1].disabled = true
+        
+
+
+
+        document.getElementById("minus").style.display = 'block'
+        
 
       }
     });
@@ -263,6 +291,11 @@
         $(wrapper).children().last().remove();
         x--
       }
+      if(x === 1){
+        document.getElementById("minus").style.display = 'none'
+      }
+      document.getElementById("print").style.display = 'block'
+      document.getElementById("plus").style.display = 'block'
     });
 
 
@@ -505,6 +538,7 @@
 
     var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
     document.getElementById("plus").style.display = 'block'
+    document.getElementById("minus").style.display = 'block'
     document.getElementById("print").style.display = 'block'
     document.getElementById("show" + y).style = 'block'
 
