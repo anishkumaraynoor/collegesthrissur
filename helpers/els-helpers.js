@@ -46,6 +46,13 @@ module.exports = {
             if(tolist[i] == ""){
                 leavetolist[i] = ""
             }
+
+            if(eventlist[i] == "Retirement/Stop Process"){
+                credittolist[i] = leavefromlist[i]
+                leavefromlist[i] = ""
+                leavetolist[i] = ""
+                leavedayslist[i] = ""
+            }
                 
         }
         
