@@ -88,6 +88,15 @@
                   </div>
                 </div>
 
+                <div class="ml-auto row">
+                <div id="edit0" style="display: none;">
+                  <a onclick="Edit(0)" class="btn btn-warning text-dark" style="height: 30px; width: 100px" id="">EDIT</a>
+                </div>
+                <div id="ok0" style="display: none">  
+                  <a onclick="Ok(0)" class="btn btn-secondary text-light" style="height: 30px; width: 100px" id="">OK</a>
+                </div>
+                </div>
+
                 <div class="row" style="display: none">
                   <div class="col-xs-3 ">
                     <input type="text" class="" size="1" id="cbfull" name="cbfull[]">
@@ -132,15 +141,14 @@
           </div>
 
 
-          <div class="row ml-5">
-            <a onclick="Add()" class="btn btn-success" id="">OK</a>
+          <div class="col-md-12 row d-flex justify-content-center">
+            <a onclick="Add()" class="btn btn-success" id="add">OK</a>
             <a href="javascript:void(0);" class="add_lwa" id="plus" title="Add field"><img src="/images/addbutton.png"
                 width="35px" height="auto" /></a>
             <a href="javascript:void(0);" class="remove_lwa" id="minus" title="Remove field"><img src="/images/removebutton.png"
                 width="35px" height="auto" /></a>
-
-
-            <button onclick="" id="print" type="submit" class="btn btn-primary">PRINT</button>
+            <a onclick="Editok()" class="btn btn-warning" style="display: none;" id="editok">Edit</a>
+            <button onclick="Print()" id="print" type="submit" class="btn btn-primary">PRINT</button>
 
 
           </div>
@@ -148,14 +156,14 @@
 
 
 
-          <div class="row" style="display:none">
+          <div class="col-xs-12 row" style="display:none">
             <label for="colFormLabel" class="col-xs-2 col-form-label">LWA</label>
             <div class="col-xs-10">
               <input type="text" class="" id="fieldnames" placeholder="" name="fieldnames">
             </div>
           </div>
 
-          <div class="form-group row" style="display:none">
+          <div class="col-xs-12 row" style="display:none">
             <div class="col-xs-3 ">
               <input type="text" class="form-control" size="2" id="obdatevalues" name="obdatevalues">
             </div>
@@ -177,7 +185,7 @@
             </div>
 
           </div>
-          <div class="row" style="display:none">
+          <div class="col-xs-12 row" style="display:none">
             <div class="col-xs-3 ">
               <input type="text" class="form-control" size="2" id="cbvalues" name="cbvalues">
             </div>
@@ -237,13 +245,13 @@
         x++;
         var i = x - 1
         var c = "bg-primary text-white"
-        if (i % 5 === 1) { c = "bg-secondary text-white" }
-        else if (i % 5 === 2) { c = "bg-success text-white" }
-        else if (i % 5 === 3) { c = "bg-danger text-white" }
-        else if (i % 5 === 4) { c = "bg-info text-white" }
+        
+        if (i % 3 === 1) { c = "bg-success text-white" }
+        else if (i % 3 === 2) { c = "bg-danger text-white" }
+        
         else { c = "bg-primary text-white" }
 
-        var fieldHTML = '<div class="card ' + c + '" style=""><div class="card-body" id="readcard' + i + '"><div class="row" style="display:none"><label for="colFormLabel" class="mr-2 col-xs-2">OB Date</label><div class="col-xs-3"><input type="date" class="" style="width: 120px;" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2">OB</label><div class="col-xs-2"><input type="text" class="" size="2" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="" style="width: 30px;" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2">/11</label></div><div class="row mt-2"><label for="" class="mr-1 col-xs-3">Event:</label><div class="col-xs-6" id="eventdiv' + i + '"><select class="" id="event" name="event[]" onchange="Select()"><option>CML/HPL/LWA etc.</option><option>Earned Leave</option><option>EL Surrender</option><option>Retirement/Stop Process</option></select></div><div class="col-xs-6" id="etextdiv' + i + '" style=""><input type="text" class="" style="display: none; width: 190px" id="etext" placeholder="" name="etext[]"></div><label for="" class="ml-1 mr-1 col-xs-3" id="showdayslabel' + i + '" style="display: none;">days</label><div class="col-xs-2" id="showdays' + i + '" style="display: none;"><input type="text" class="" size="1" id="days" placeholder="" name="days[]"></div></div><div class="row"><label for="" class="mr-2 col-xs-2" id="showfromlabel' + i + '">From:</label><div class="col-xs-4"><input type="date" class="" style="width: 120px; height: 30px" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2" id="showtolabel' + i + '">To:</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="" style="width: 120px; height: 30px" id="to" name="to[]"></div></div><div class="row" id="show' + i + '" style="display: none;"><label for="" class="mr-2 col-xs-2">CB Date</label><div class="col-xs-4"><input type="date" class="bg-dark text-white" style="width: 120px; height: 30px" id="cbdate" name="cbdate[]" disabled></div><label for="" class="ml-2 mr-2 col-xs-2">CB</label><div class="col-xs-4"><input type="text" class="bg-dark text-white" style="width: 80px;" id="cb" name="cb[]" disabled></div></div><div class="row" style="display: none;"><div class="col-xs-3 "><input type="text" class="" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbd" name="cbd[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="eventtext" name="eventtext[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditf" name="creditf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditt" name="creditt[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="obd" name="obd[]"></div></div></div></div>'
+        var fieldHTML = '<div class="card ' + c + '" style=""><div class="card-body" id="readcard' + i + '"><div class="row" style="display:none"><label for="colFormLabel" class="mr-2 col-xs-2">OB Date</label><div class="col-xs-3"><input type="date" class="" style="width: 120px;" id="obdate" placeholder="" name="obdate[]"></div><label for="colFormLabel" class="mr-2 ml-2 col-xs-2">OB</label><div class="col-xs-2"><input type="text" class="" size="2" id="obfull" placeholder="" name="obfull[]"></div><div class="col-xs-2"><input type="text" class="" style="width: 30px;" id="fraction" placeholder="" name="fraction[]"></div><label for="colFormLabel" class="ml-1 col-xs-2">/11</label></div><div class="row mt-2"><label for="" class="mr-1 col-xs-3">Event:</label><div class="col-xs-6" id="eventdiv' + i + '"><select class="" id="event" name="event[]" onchange="Select()"><option>CML/HPL/LWA etc.</option><option>Earned Leave</option><option>EL Surrender</option><option>Retirement/Stop Process</option></select></div><div class="col-xs-6" id="etextdiv' + i + '" style=""><input type="text" class="" style="display: none; width: 190px" id="etext" placeholder="" name="etext[]"></div><label for="" class="ml-1 mr-1 col-xs-3" id="showdayslabel' + i + '" style="display: none;">days</label><div class="col-xs-2" id="showdays' + i + '" style="display: none;"><input type="text" class="" size="1" id="days" placeholder="" name="days[]"></div></div><div class="row"><label for="" class="mr-2 col-xs-2" id="showfromlabel' + i + '">From:</label><div class="col-xs-4"><input type="date" class="" style="width: 120px; height: 30px" id="from" name="from[]"></div><label for="" class="ml-2 mr-2 col-xs-2" id="showtolabel' + i + '">To:</label><div class="col-xs-4" id="showto' + i + '"><input type="date" class="" style="width: 120px; height: 30px" id="to" name="to[]"></div></div><div class="row" id="show' + i + '" style="display: none;"><label for="" class="mr-2 col-xs-2">CB Date</label><div class="col-xs-4"><input type="date" class="bg-dark text-white" style="width: 120px; height: 30px" id="cbdate" name="cbdate[]" disabled></div><label for="" class="ml-2 mr-2 col-xs-2">CB</label><div class="col-xs-4"><input type="text" class="bg-dark text-white" style="width: 80px;" id="cb" name="cb[]" disabled></div></div><div class="ml-auto row"><div id="edit' + i + '" style="display: none;"><a onclick="Edit(' + i + ')" class="btn btn-warning text-dark" style="height: 30px; width: 100px" id="">EDIT</a></div><div id="ok' + i + '" style="display: none"><a onclick="Ok(' + i + ')" class="btn btn-secondary text-light" style="height: 30px; width: 100px" id="">OK</a></div></div><div class="row" style="display: none;"><div class="col-xs-3 "><input type="text" class="" size="1" id="cbfull" name="cbfull[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbf" name="cbf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ob" name="ob[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="total" name="total[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="duty" name="duty[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="credit" name="credit[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="ldays" name="ldays[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="cbd" name="cbd[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="eventtext" name="eventtext[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditf" name="creditf[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="creditt" name="creditt[]"></div><div class="col-xs-3 "><input type="text" class="" size="1" id="obd" name="obd[]"></div></div></div></div>'
         $(wrapper).append(fieldHTML);
         var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
         var z = y-1
@@ -263,6 +271,7 @@
 
         document.getElementById("plus").style.display = 'none'
         document.getElementById("print").style.display = 'none'
+        document.getElementById("editok").style.display = 'none'
         document.getElementById("obdate").disabled = true
         document.getElementById("obfull").disabled = true
         document.getElementById("fraction").disabled = true
@@ -282,20 +291,38 @@
 
 
         document.getElementById("minus").style.display = 'block'
+        document.getElementById("add").style.display = 'block'
         
 
       }
     });
     $(removeLWA).click(function () {
+        var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+        document.form.obdate[y-1].disabled = false
+        document.form.obfull[y-1].disabled = false
+        document.form.fraction[y-1].disabled = false
+        document.form.days[y-1].disabled = false
+        document.form.from[y-1].disabled = false
+        document.form.to[y-1].disabled = false
+        document.form.event[y-1].style.display = 'block'
+        document.form.etext[y-1].style.display = 'none'
+        document.form.etext[y-1].disabled = false
+
+
+
       if (x > 1) {
         $(wrapper).children().last().remove();
         x--
       }
       if(x === 1){
         document.getElementById("minus").style.display = 'none'
+        document.getElementById("editok").style.display = 'none'
+      }else{
+        document.getElementById("editok").style.display = 'block'
       }
       document.getElementById("print").style.display = 'block'
       document.getElementById("plus").style.display = 'block'
+      
     });
 
 
@@ -342,9 +369,102 @@
   }
 
 
+  function Editok(){
+    
+    if (obdate[0]) {
+      var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+    } 
+
+    for(i = 0; i <= y; i++){
+      document.getElementById("edit" + i).style.display = 'block'
+      document.getElementById("ok" + i).style.display = 'block'
+    }
+    if(document.form.from[y].disabled == true){
+      document.getElementById("edit" + y).style.display = 'block'
+      document.getElementById("ok" + y).style.display = 'block'
+    }
+
+      //document.getElementById("edit" + 0).style.display = 'block'
+      //document.getElementById("ok" + 0).style.display = 'block'
+
+    document.form.etext[y].value = document.form.event[y-1].value
+        
+
+        document.form.days[y].disabled = true
+        document.form.from[y].disabled = true
+        document.form.to[y].disabled = true
+        
+        document.form.event[y].style.display = 'none'
+        document.form.etext[y].style.display = 'block'
+        document.form.etext[y].disabled = true
+
+        document.getElementById("add").style.display = 'none'
+        document.getElementById("editok").style.display = 'none'
+    
+  }
+
+  function Print(){
+    if (obdate[0]) {
+      var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+    } else {
+      y = 0
+    }
+
+    for(i = 0; i <= y; i++){
+      document.getElementById("edit" + i).style.display = 'none'
+      document.getElementById("ok" + i).style.display = 'none'
+    }
+
+    document.getElementById("add").style.display = 'block'
+    
+  }
+
+  function Edit(edit){
+    document.form.obdate[edit].disabled = false
+    document.form.obfull[edit].disabled = false
+    document.form.fraction[edit].disabled = false
+    document.form.days[edit].disabled = false
+    document.form.from[edit].disabled = false
+    document.form.to[edit].disabled = false
+    document.form.event[edit].style.display = 'block'
+    document.form.etext[edit].style.display = 'none'
+    document.form.etext[edit].disabled = false
+    if(edit == 0){
+      if (document.form.event[edit].value == "CML/HPL/LWA etc.") { 
+      document.getElementById('showdays').style.display = 'none';
+      document.getElementById('showdayslabel').style.display = 'none';  
+      }
+      if (document.form.event[y].value == "Earned Leave") { 
+      document.getElementById('showdays').style.display = 'none';
+      document.getElementById('showdayslabel').style.display = 'none';  
+      }
+    } else {
+      if (document.form.event[edit].value == "CML/HPL/LWA etc.") { 
+      document.getElementById('showdays' + edit).style.display = 'none';
+      document.getElementById('showdayslabel' + edit).style.display = 'none';  
+      }
+      if (document.form.event[y].value == "Earned Leave") { 
+      document.getElementById('showdays' + edit).style.display = 'none';
+      document.getElementById('showdayslabel' + edit).style.display = 'none';  
+      }
+    }
+
+    
+  }
 
 
-
+  function Ok(ok){
+     if (obdate[0]) {
+      var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+      for(i=0; i<=y; i++){
+        Add2(i)
+      }
+      
+    } else {
+      Add1()
+    }
+    Collect()
+  }
 
 
 
@@ -354,8 +474,13 @@
 
   function Add1() {
 
-    document.getElementById("plus").style.display = 'block'
+    if (document.form.event.value == "Retirement/Stop Process") {
+      document.getElementById("plus").style.display = 'none'
+    } else {
+      document.getElementById("plus").style.display = 'block'
+    }
     document.getElementById("print").style.display = 'block'
+    document.getElementById("editok").style.display = 'none'
     document.getElementById("show").style = 'block'
 
 
@@ -553,17 +678,32 @@
 
     document.form.eventtext.value = document.form.event.value
 
+    if (document.form.event.value == "CML/HPL/LWA etc.") { 
+      document.getElementById('showdays').style.display = 'block';
+      document.getElementById('showdayslabel').style.display = 'block';  
+    }
+    if (document.form.event.value == "Earned Leave") { 
+      document.getElementById('showdays').style.display = 'block';
+      document.getElementById('showdayslabel').style.display = 'block';  
+    }
+
 
 
   }
 
 
-  function Add2() {
+  function Add2(y) {
 
-    var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
-    document.getElementById("plus").style.display = 'block'
+    
+
+    if (document.form.event[y].value == "Retirement/Stop Process") {
+      document.getElementById("plus").style.display = 'none'
+    } else {
+      document.getElementById("plus").style.display = 'block'
+    }
     document.getElementById("minus").style.display = 'block'
     document.getElementById("print").style.display = 'block'
+    document.getElementById("editok").style.display = 'block'
     document.getElementById("show" + y).style = 'block'
 
     var datef = document.form.obdate[y].value;
@@ -745,15 +885,23 @@
 
     document.form.eventtext[y].value = document.form.event[y].value
 
-
+    if (document.form.event[y].value == "CML/HPL/LWA etc.") { 
+      document.getElementById('showdays' + y).style.display = 'block';
+      document.getElementById('showdayslabel' + y).style.display = 'block';  
+    }
+    if (document.form.event[y].value == "Earned Leave") { 
+      document.getElementById('showdays' + y).style.display = 'block';
+      document.getElementById('showdayslabel' + y).style.display = 'block';  
+    }
 
 
   }
 
 
-  function Add() {
+  function Add() { 
     if (obdate[0]) {
-      Add2()
+      var y = $("input[name='obdate[]']").map(function () { return $(this).val(); }).get().length - 1
+      Add2(y)
     } else {
       Add1()
     }
